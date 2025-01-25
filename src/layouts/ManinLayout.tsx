@@ -4,7 +4,7 @@ import Footer from "./Footer";
 
 const ManinLayout = () => {
   return (
-    <div>
+    <div className="bg-gray-50">
       <div className="h-16 lg:mb-3 ">
         <Naver />
       </div>

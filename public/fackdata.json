@@ -1,0 +1,66 @@
+[
+  {
+    "name": "RoadMaster Pro",
+    "brand": "SpeedX",
+    "price": 1200,
+    "model": "RM-500",
+    "stock": 15,
+    "image": "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg"
+  },
+  {
+    "name": "Mountain Climber",
+    "brand": "TrailBlaze",
+    "price": 1500,
+    "model": "MTB-X2",
+    "stock": 8,
+    "image": "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg"
+  },
+  {
+    "name": "Urban Cruiser",
+    "brand": "CityRide",
+    "price": 900,
+    "model": "CR-100",
+    "stock": 20,
+    "image": "https://images.pexels.com/photos/4203364/pexels-photo-4203364.jpeg"
+  },
+  {
+    "name": "Hybrid Explorer",
+    "brand": "EcoCycle",
+    "price": 1100,
+    "model": "HE-300",
+    "stock": 10,
+    "image": "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg"
+  },
+  {
+    "name": "Speedster Racer",
+    "brand": "Velocity",
+    "price": 1800,
+    "model": "SR-700",
+    "stock": 5,
+    "image": "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg"
+  },
+  {
+    "name": "Commuter Delight",
+    "brand": "DailyRide",
+    "price": 750,
+    "model": "CD-50",
+    "stock": 25,
+    "image": "https://images.pexels.com/photos/4203364/pexels-photo-4203364.jpeg"
+  },
+  {
+    "name": "Adventure Trekker",
+    "brand": "GlobeCycle",
+    "price": 1300,
+    "model": "AT-200",
+    "stock": 12,
+    "image": "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg"
+  },
+  {
+    "name": "Eco Friendly Rider",
+    "brand": "GreenWheels",
+    "price": 950,
+    "model": "ECO-500",
+    "stock": 18,
+    "image": "https://images.pexels.com/photos/4203364/pexels-photo-4203364.jpeg"
+  }
+]

@@ -1,0 +1,58 @@
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { FaShoppingCart, FaEye, FaHeart } from "react-icons/fa";
+type TItems = {
+  name: string;
+  brand: string;
+  price: number;
+
+  model: string;
+  stock: number;
+  image: string;
+};
+const ProductCard = ({ item }: { item: TItems }) => {
+  return (
+    <Card className="w-full max-w-[313px] relative group overflow-hidden border rounded-lg shadow-lg">
+      <div className="relative group">
+        <span className="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+          Hot Sell 🔥
+        </span>
+        <img
+          className="h-48 w-full object-cover rounded-t-lg group-hover:opacity-70"
+          src={item.image}
+          alt=""
+        />
+
+        {/* Hover Options - Only on Image */}
+        <div className="absolute inset-0 bg-black/50 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <Button className="bg-white text-black hover:bg-red-400 hover:text-white p-3 rounded-full shadow-md">
+            <FaShoppingCart size={20} />
+          </Button>
+          <Button className="bg-white text-black p-3  hover:bg-red-400 hover:text-white rounded-full shadow-md">
+            <FaEye size={20} />
+          </Button>
+          <Button className="bg-white text-black hover:bg-red-400 hover:text-white p-3 rounded-full shadow-md">
+            <FaHeart size={20} />
+          </Button>
+        </div>
+      </div>
+      <CardHeader>
+        <CardTitle>{item.name}</CardTitle>
+      </CardHeader>
+      <CardContent>
+        {" "}
+        <p className="text-red-500 font-bold">${item.price}</p>{" "}
+      </CardContent>
+      <CardFooter className=""></CardFooter>
+    </Card>
+  );
+};
+
+export default ProductCard;

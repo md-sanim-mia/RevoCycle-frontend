@@ -1,7 +1,7 @@
 import "animate.css";
 const Banner = () => {
   return (
-    <div className="max-w-screen-xl lg:h-[520px] md:h-[450px] mx-auto  lg:flex gap-6">
+    <div className="max-w-screen-xl lg:h-[520px]  mx-auto  lg:flex gap-4 lg:px-0 px-3">
       <section
         className="relative lg:w-3/5  bg-cover bg-center py-4"
         style={{
@@ -38,15 +38,25 @@ const Banner = () => {
           </div>
         </div>
       </section>
-      <div className=" lg:w-[40%] lg:grid md:flex md:gap-4 lg:mt-0 mt-3">
-        <div className="w-full">
-          <img
-            className="h-[253px] w-full"
-            src="https://media.istockphoto.com/id/1430800922/photo/adventure-street-travel-and-bike-break-outdoor-in-urban-city-in-summer-woman-with-vintage.webp?a=1&b=1&s=612x612&w=0&k=20&c=f0n8LPebg13ZXMo7Rz65Mbok8-XFhT1KzAXIDZ0WO7w="
-            alt=""
-          />
+      <div className=" lg:w-[40%] h-full lg:grid  md:flex md:gap-4 lg:mt-0  mt-4">
+        <div className="w-full ">
+          <div className="bg-white h-[253px] py-6 hover:scale-105 text-black shadow-xl rounded-xl text-center animate__animated animate__fadeIndown">
+            <div>
+              <h3 className="text-3xl font-bold  text-red-400">
+                Limited Edition Bicycle
+              </h3>
+              <p className="mt-3 text-lg">
+                Experience the best ride with our premium model. Available now
+                at a special discount!
+              </p>
+              <button className="mt-5  px-5 py-3 bg-gradient-to-r from-red-300 to-red-500 text-white font-medium rounded-full shadow-xl  hover:scale-105">
+                Buy Now
+              </button>
+            </div>
+          </div>
         </div>
-        <div className=" lg:mt-0 w-full">
+
+        <div className=" h-full lg:mt-0 md:mt-0 mt-4 w-full hover:scale-105 cursor-pointer">
           <img
             className="h-[253px] w-full"
             src="https://media.istockphoto.com/id/1430800922/photo/adventure-street-travel-and-bike-break-outdoor-in-urban-city-in-summer-woman-with-vintage.webp?a=1&b=1&s=612x612&w=0&k=20&c=f0n8LPebg13ZXMo7Rz65Mbok8-XFhT1KzAXIDZ0WO7w="
