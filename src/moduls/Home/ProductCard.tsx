@@ -48,7 +48,10 @@ const ProductCard = ({ item }: { item: TItems }) => {
       </CardHeader>
       <CardContent>
         {" "}
-        <p className="text-red-500 font-bold">${item.price}</p>{" "}
+        <div className="flex justify-between">
+          <p className="text-red-500 font-bold">${item.price}</p>{" "}
+          <p className=" font-bold">stock : 0/{item.stock}</p>{" "}
+        </div>
       </CardContent>
       <CardFooter className=""></CardFooter>
     </Card>
