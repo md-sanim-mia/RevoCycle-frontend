@@ -1,12 +1,14 @@
+import { cn } from "@/lib/utils";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 const Naver = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div>
+    <div className="">
       {" "}
-      <nav className=" fixed z-40 w-full bg-[#000000] shadow dark:bg-gray-800">
-        <div className="container px-6 py-4 mx-auto">
+      <nav className=" fixed z-40 w-full mx-auto  bg-[#000000] shadow dark:bg-gray-800">
+        <div className="max-w-screen-xl px-6 py-4 mx-auto">
           <div className="lg:flex lg:items-center lg:justify-between">
             <div className="flex items-center justify-between">
               <h2 className="text-gray-300 text-xl">RevoCycle</h2>
@@ -60,32 +62,37 @@ const Naver = () => {
               }`}
             >
               <div className="flex flex-col -mx-6 lg:flex-row lg:items-center lg:mx-8">
-                <a
-                  href="#"
-                  className="px-3 py-2 mx-3 mt-2  transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 text-gray-400 hover:bg-gray-200 hover:text-black dark:hover:bg-gray-700"
+                <NavLink
+                  to={"/"}
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-white font-semibold  py-2 mx-3"
+                      : " py-2 mx-3  mt-2 hover:text-white  transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 text-gray-400"
+                  }
                 >
-                  Join Slack
-                </a>
-                <a
-                  href="#"
-                  className="px-3 py-2 mx-3 mt-2  transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 text-gray-400 hover:bg-gray-200 hover:text-black dark:hover:bg-gray-700"
+                  Home
+                </NavLink>
+                <NavLink
+                  to={"/allBicycles"}
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-white font-semibold   py-2 mx-3"
+                      : " py-2 mx-3 mt-2 hover:text-white  transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 text-gray-400"
+                  }
                 >
-                  Browse Topics
-                </a>
-                <a
-                  href="#"
-                  className="px-3 py-2 mx-3 mt-2  transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 text-gray-400 hover:bg-gray-200 hover:text-black dark:hover:bg-gray-700"
-                >
-                  Random Item
-                </a>
-                <a
-                  href="#"
-                  className="px-3 py-2 mx-3 mt-2 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 text-gray-400 hover:bg-gray-200 hover:text-black dark:hover:bg-gray-700"
-                >
-                  Experts
-                </a>
+                  All Bicycles
+                </NavLink>
               </div>
-
+              <NavLink
+                to={"/login"}
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-white font-semibold py-2 mx-3 mt-2"
+                    : " py-2 mx-3 mt-2 hover:text-white  transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 text-gray-400"
+                }
+              >
+                Sign in
+              </NavLink>
               <div className="flex items-center mt-4 lg:mt-0">
                 <button
                   className="hidden mx-4 text-gray-600 transition-colors duration-300 transform lg:block dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none"
@@ -128,6 +135,11 @@ const Naver = () => {
           </div>
         </div>
       </nav>
+      {/* <div className="w-full h-16 fixed z-40 ">
+        <nav className="bg-[#000000]  w-full shadow dark:bg-gray-800">
+          hello
+        </nav>
+      </div> */}
     </div>
   );
 };

@@ -19,7 +19,7 @@ const Testimonials = () => {
       >
         <SwiperSlide>
           <div className=" p-6 bg-white rounded-lg shadow-md transform hover:scale-105 transition duration-300">
-            <Rating initialRating={5} />
+            <Rating initialRating={5} emptySymbol="☆" />
             <p className="text-gray-600 text-lg italic">
               "This service has been a game changer for me. Highly recommended!"
             </p>
