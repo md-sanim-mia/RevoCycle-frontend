@@ -1,9 +1,9 @@
 const BikesCollection = () => {
   return (
-    <div className="max-w-screen-xl mx-auto">
-      <div className=" lg:flex justify-center gap-8 lg:py-20 md:14 ">
+    <div className="max-w-screen-xl mx-auto lg:px-0 px-3">
+      <div className=" lg:flex lg:mt-0 mt-4 justify-center gap-8 lg:py-20 md:14 ">
         {/* Card 1 */}
-        <div className="relative w-1/3 h-64 rounded-lg overflow-hidden group">
+        <div className="relative  lg:w-1/3 h-64 rounded-lg overflow-hidden group">
           <img
             src="https://media.istockphoto.com/id/1740244348/photo/smiling-asian-woman-in-her-20s-wearing-casual-clothes-and-headphones-riding-a-bicycle-on-the.webp?a=1&b=1&s=612x612&w=0&k=20&c=Ga8ggvNjP3xclcnMzCsze_rrv98RWLOkK5IGcmN1Go8="
             alt="Singletrack Speed"
@@ -21,7 +21,7 @@ const BikesCollection = () => {
         </div>
 
         {/* Card 2 */}
-        <div className="relative w-1/3 h-64 rounded-lg overflow-hidden group">
+        <div className="relative lg:w-1/3 lg:mt-0 mt-4 h-64 rounded-lg overflow-hidden group">
           <img
             src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmljeWNsZXxlbnwwfHwwfHx8MA%3D%3D"
             alt="Trail Power"
@@ -39,7 +39,7 @@ const BikesCollection = () => {
         </div>
 
         {/* Card 3 */}
-        <div className="relative w-1/3 h-64 rounded-lg overflow-hidden group">
+        <div className="relative lg:w-1/3 lg:mt-0 mt-4 h-64 rounded-lg overflow-hidden group">
           <img
             src="https://images.unsplash.com/photo-1576435728678-68d0fbf94e91?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8YmljeWNsZXxlbnwwfHwwfHx8MA%3D%3D"
             alt="Road Bikes"

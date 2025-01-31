@@ -4,16 +4,27 @@ import { Input } from "@/components/ui/input";
 import { loginSchema } from "@/Schema/loginSchema";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useLoginMutation } from "@/redux/features/Auth/auth.api";
+import { useAppDispatch } from "@/redux/hook";
+import { setUser } from "@/redux/features/Auth/auth.slice";
+import { verifyToken } from "@/utils/verifyToken";
 const Login = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({ resolver: zodResolver(loginSchema) });
-
-  const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    console.log("Login Data:", data);
+  const navigation = useNavigate();
+  const [loging] = useLoginMutation();
+  const dispatch = useAppDispatch();
+  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+    console.log(data);
+    const res = await loging(data).unwrap();
+    const decodeUser = verifyToken(res.data.accessToken);
+    dispatch(setUser({ user: decodeUser, token: res.data.accessToken }));
+    navigation("/");
+    console.log("Login Data:", res);
   };
 
   return (

@@ -1,9 +1,8 @@
-import Home from "@/pages/Home";
-
+import User from "@/pages/Dashboard/User";
 export const commonPath = [
   {
-    name: "Home",
-    path: "/",
-    element: <Home />,
+    name: "Dashboard",
+    path: "user",
+    element: <User />,
   },
 ];
