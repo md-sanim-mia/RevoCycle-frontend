@@ -10,14 +10,16 @@ import { routeGenerate } from "@/utils/RouteGenerate";
 import { createBrowserRouter } from "react-router-dom";
 import { adminPaht } from "./adminRoute";
 import { commonPath } from "./CommonRoutes";
+import ManinLayout from "@/layouts/ManinLayout";
+import UpdateProduct from "@/moduls/Dashboard/UpdateProduct";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <ManinLayout />,
     children: [
       {
-        index: true,
+        path: "/",
         element: <Home />,
       },
       {
@@ -29,7 +31,7 @@ const router = createBrowserRouter([
         element: <About />,
       },
       {
-        path: "/product-deatils",
+        path: "/product-details/:productId",
         element: <ProductDeatils />,
       },
     ],
@@ -55,6 +57,16 @@ const router = createBrowserRouter([
     path: "/dashboard",
     element: <Dashboard />,
     children: routeGenerate(commonPath),
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard />,
+    children: [
+      {
+        path: "/dashboard/update-Product/:productId",
+        element: <UpdateProduct />,
+      },
+    ],
   },
 ]);
 

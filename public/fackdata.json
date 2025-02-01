@@ -1,66 +1,122 @@
 [
   {
-    "name": "RoadMaster Pro",
-    "brand": "SpeedX",
-    "price": 1200,
-    "model": "RM-500",
-    "stock": 15,
-    "image": "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg"
+    "image": "https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmljeWNsZXxlbnwwfHwwfHx8MA%3D%3D",
+    "productImage": [
+      "https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmljeWNsZXxlbnwwfHwwfHx8MA%3D%3D",
+      "https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8YmljeWNsZXxlbnwwfHwwfHx8MA%3D%3D",
+      "https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YmljeWNsZXxlbnwwfHwwfHx8MA%3D%3D"
+    ],
+    "name": "Speedster Deluxe",
+    "brand": "RaceEdge",
+    "model": "RX1000",
+    "price": 2000,
+    "quantity": 7,
+    "category": "Race Bike",
+    "description": "Advanced race bike for competitive cyclists seeking top performance."
   },
   {
-    "name": "Mountain Climber",
-    "brand": "TrailBlaze",
+    "image": "https://plus.unsplash.com/premium_photo-1678718713393-2b88cde9605b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YmljeWNsZXxlbnwwfHwwfHx8MA%3D%3D",
+    "productImage": [
+      "https://plus.unsplash.com/premium_photo-1678718713393-2b88cde9605b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YmljeWNsZXxlbnwwfHwwfHx8MA%3D%3D",
+      "https://images.unsplash.com/photo-1576435728678-68d0fbf94e91?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8YmljeWNsZXxlbnwwfHwwfHx8MA%3D%3D",
+      "https://images.unsplash.com/photo-1505705694340-019e1e335916?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGJpY3ljbGV8ZW58MHx8MHx8fDA%3D"
+    ],
+    "name": "Speedster Pro",
+    "brand": "CycleMax",
+    "model": "CXP2000",
+    "price": 2500,
+    "quantity": 5,
+    "category": "Race Bike",
+    "description": "High-performance race bike for seasoned riders."
+  },
+  {
+    "image": "https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YmljeWNsZXxlbnwwfHwwfHx8MA%3D%3D",
+    "productImage": [
+      "https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YmljeWNsZXxlbnwwfHwwfHx8MA%3D%3D",
+      "https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8YmljeWNsZXxlbnwwfHwwfHx8MA%3D%3D",
+      "https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmljeWNsZXxlbnwwfHwwfHx8MA%3D%3D"
+    ],
+    "name": "Mountain Beast",
+    "brand": "WildTrail",
+    "model": "MT500",
     "price": 1500,
-    "model": "MTB-X2",
-    "stock": 8,
-    "image": "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg"
+    "quantity": 8,
+    "category": "Mountain Bike",
+    "description": "Built for the toughest trails, designed for extreme mountain adventures."
   },
   {
-    "name": "Urban Cruiser",
-    "brand": "CityRide",
-    "price": 900,
-    "model": "CR-100",
-    "stock": 20,
-    "image": "https://images.pexels.com/photos/4203364/pexels-photo-4203364.jpeg"
+    "image": "https://images.unsplash.com/photo-1576435728678-68d0fbf94e91?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8YmljeWNsZXxlbnwwfHwwfHx8MA%3D%3D",
+    "productImage": [
+      "https://images.unsplash.com/photo-1576435728678-68d0fbf94e91?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8YmljeWNsZXxlbnwwfHwwfHx8MA%3D%3D",
+      "https://images.unsplash.com/photo-1505705694340-019e1e335916?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGJpY3ljbGV8ZW58MHx8MHx8fDA%3D",
+      "https://plus.unsplash.com/premium_photo-1678718713393-2b88cde9605b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YmljeWNsZXxlbnwwfHwwfHx8MA%3D%3D"
+    ],
+    "name": "City Cruiser",
+    "brand": "UrbanVibe",
+    "model": "CV100",
+    "price": 1200,
+    "quantity": 10,
+    "category": "City Bike",
+    "description": "Ideal for city commuting with lightweight frame and smooth ride."
   },
   {
-    "name": "Hybrid Explorer",
-    "brand": "EcoCycle",
-    "price": 1100,
-    "model": "HE-300",
-    "stock": 10,
-    "image": "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg"
+    "image": "https://images.unsplash.com/photo-1505705694340-019e1e335916?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGJpY3ljbGV8ZW58MHx8MHx8fDA%3D",
+    "productImage": [
+      "https://images.unsplash.com/photo-1505705694340-019e1e335916?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGJpY3ljbGV8ZW58MHx8MHx8fDA%3D",
+      "https://images.unsplash.com/photo-1576435728678-68d0fbf94e91?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8YmljeWNsZXxlbnwwfHwwfHx8MA%3D%3D",
+      "https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8YmljeWNsZXxlbnwwfHwwfHx8MA%3D%3D"
+    ],
+    "name": "Urban Runner",
+    "brand": "CityLife",
+    "model": "UR900",
+    "price": 1400,
+    "quantity": 6,
+    "category": "City Bike",
+    "description": "Comfortable and efficient bike for daily urban commutes."
   },
   {
-    "name": "Speedster Racer",
-    "brand": "Velocity",
-    "price": 1800,
-    "model": "SR-700",
-    "stock": 5,
-    "image": "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg"
+    "image": "https://images.unsplash.com/photo-1505705694340-019e1e335916?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGJpY3ljbGV8ZW58MHx8MHx8fDA%3D",
+    "productImage": [
+      "https://images.unsplash.com/photo-1505705694340-019e1e335916?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGJpY3ljbGV8ZW58MHx8MHx8fDA%3D",
+      "https://images.unsplash.com/photo-1576435728678-68d0fbf94e91?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8YmljeWNsZXxlbnwwfHwwfHx8MA%3D%3D",
+      "https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8YmljeWNsZXxlbnwwfHwwfHx8MA%3D%3D"
+    ],
+    "name": "Explorer X",
+    "brand": "OutDoorPro",
+    "model": "EXX1500",
+    "price": 2200,
+    "quantity": 4,
+    "category": "Adventure Bike",
+    "description": "Rugged and durable bike for off-road and adventure enthusiasts."
   },
   {
-    "name": "Commuter Delight",
-    "brand": "DailyRide",
-    "price": 750,
-    "model": "CD-50",
-    "stock": 25,
-    "image": "https://images.pexels.com/photos/4203364/pexels-photo-4203364.jpeg"
+    "image": "https://images.unsplash.com/photo-1576435728678-68d0fbf94e91?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8YmljeWNsZXxlbnwwfHwwfHx8MA%3D%3D",
+    "productImage": [
+      "https://images.unsplash.com/photo-1576435728678-68d0fbf94e91?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8YmljeWNsZXxlbnwwfHwwfHx8MA%3D%3D",
+      "https://images.unsplash.com/photo-1505705694340-019e1e335916?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGJpY3ljbGV8ZW58MHx8MHx8fDA%3D",
+      "https://plus.unsplash.com/premium_photo-1678718713393-2b88cde9605b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YmljeWNsZXxlbnwwfHwwfHx8MA%3D%3D"
+    ],
+    "name": "Road Warrior",
+    "brand": "SpeedZone",
+    "model": "RW1000",
+    "price": 1700,
+    "quantity": 9,
+    "category": "Road Bike",
+    "description": "Sleek and fast bike designed for road racing."
   },
   {
-    "name": "Adventure Trekker",
-    "brand": "GlobeCycle",
-    "price": 1300,
-    "model": "AT-200",
-    "stock": 12,
-    "image": "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg"
-  },
-  {
-    "name": "Eco Friendly Rider",
-    "brand": "GreenWheels",
-    "price": 950,
-    "model": "ECO-500",
-    "stock": 18,
-    "image": "https://images.pexels.com/photos/4203364/pexels-photo-4203364.jpeg"
+    "image": "https://plus.unsplash.com/premium_photo-1678718713393-2b88cde9605b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YmljeWNsZXxlbnwwfHwwfHx8MA%3D%3D",
+    "productImage": [
+      "https://images.unsplash.com/photo-1505705694340-019e1e335916?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGJpY3ljbGV8ZW58MHx8MHx8fDA%3D",
+      "https://images.unsplash.com/photo-1576435728678-68d0fbf94e91?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8YmljeWNsZXxlbnwwfHwwfHx8MA%3D%3D",
+      "https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8YmljeWNsZXxlbnwwfHwwfHx8MA%3D%3D"
+    ],
+    "name": "Urban Runner",
+    "brand": "CityLife",
+    "model": "UR900",
+    "price": 1400,
+    "quantity": 6,
+    "category": "City Bike",
+    "description": "Comfortable and efficient bike for daily urban commutes."
   }
 ]

@@ -7,6 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { FC } from "react";
 import { FaShoppingCart, FaEye, FaHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 export type TItems = {
@@ -20,8 +21,8 @@ export type TItems = {
   image: string;
   _id: string;
 };
-const ProductCard = ({ item }: { item: TItems }) => {
 
+const BicycleCard = ({ item }: { item: TItems }) => {
   return (
     <Card className="w-full max-w-[313px] relative group overflow-hidden border rounded-lg shadow-lg">
       <div className="relative group">
@@ -40,7 +41,7 @@ const ProductCard = ({ item }: { item: TItems }) => {
             <FaShoppingCart size={20} />
           </Button>
           <Button className="bg-white text-black p-3  hover:bg-red-400 hover:text-white rounded-full shadow-md">
-            <Link to={`/product-details/${item._id}`}>
+            <Link to={`/product-deatils/${item?._id}`}>
               <FaEye size={20} />
             </Link>
           </Button>
@@ -64,4 +65,4 @@ const ProductCard = ({ item }: { item: TItems }) => {
   );
 };
 
-export default ProductCard;
+export default BicycleCard;

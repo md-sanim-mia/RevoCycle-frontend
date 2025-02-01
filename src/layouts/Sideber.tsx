@@ -70,7 +70,7 @@ const Sideber = () => {
                     <NavLink
                       to={`${item?.label}`}
                       className={({ isActive }) =>
-                        `flex items-center py-1 px-4 mt-3 font-medium rounded-lg transition-colors duration-300 transform hover:bg-[#FF9800] ${
+                        `flex items-center py-1 px-4 mt-3 font-medium rounded-lg transition-colors duration-300 transform hover:bg-[#FF9800] hover:text-white ${
                           isActive
                             ? "bg-[#F57C00] text-[#ffffff]"
                             : "text-[#FFCC80]"

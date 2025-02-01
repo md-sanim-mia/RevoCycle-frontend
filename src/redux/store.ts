@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { baseApi } from "./api/baseApi";
 import isOpenReducer from "./features/sideberSlice";
 import authReducer from ".//features/Auth/auth.slice";
+import bicyclesReducer from "./features/bicycle/bicycle.slice";
 import {
   persistStore,
   persistReducer,
@@ -24,6 +25,7 @@ export const store = configureStore({
     [baseApi.reducerPath]: baseApi.reducer,
     isOpens: isOpenReducer,
     auth: persistAuthReducer,
+    bicycles: bicyclesReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
