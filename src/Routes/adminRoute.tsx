@@ -1,6 +1,7 @@
 import AddProuct from "@/moduls/Dashboard/AddProuct";
 import AllUser from "@/moduls/Dashboard/All User/AllUser";
 import AllProduct from "@/moduls/Dashboard/AllProduct";
+import PaymentHistory from "@/moduls/Dashboard/PaymentHistory";
 import Admin from "@/pages/Dashboard/Admin";
 
 export const adminPaht = [
@@ -23,5 +24,10 @@ export const adminPaht = [
     name: "All Product",
     path: "all-product",
     element: <AllProduct />,
+  },
+  {
+    name: "All Orders",
+    path: "all-payment-history",
+    element: <PaymentHistory />,
   },
 ];

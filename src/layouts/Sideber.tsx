@@ -47,11 +47,6 @@ const Sideber = () => {
         <div>
           {/* logo */}
           <div className="items-center flex lg:justify-normal  gap-3 justify-between w-full px-1 mx-auto md:flex">
-            <img
-              className="h-10 w-10 rounded-full text-white"
-              src="https://i.postimg.cc/pr02PbW9/fe366229-8b51-46f6-b08a-18169a3e955d.jpg"
-              alt=""
-            />
             <Link to="/">
               <h1 className=" text-3xl font-bold  text-white">RevoCycle</h1>
             </Link>

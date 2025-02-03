@@ -12,6 +12,7 @@ import { adminPaht } from "./adminRoute";
 import { commonPath } from "./CommonRoutes";
 import ManinLayout from "@/layouts/ManinLayout";
 import UpdateProduct from "@/moduls/Dashboard/UpdateProduct";
+import Payment from "@/pages/Payments/Payment";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: "/product-details/:productId",
         element: <ProductDeatils />,
+      },
+      {
+        path: "/payments",
+        element: <Payment />,
       },
     ],
   },

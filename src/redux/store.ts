@@ -3,6 +3,7 @@ import { baseApi } from "./api/baseApi";
 import isOpenReducer from "./features/sideberSlice";
 import authReducer from ".//features/Auth/auth.slice";
 import bicyclesReducer from "./features/bicycle/bicycle.slice";
+import bicyclePaymentReducer from "./features/payment/payment.slice";
 import {
   persistStore,
   persistReducer,
@@ -20,12 +21,17 @@ const persistConfig = {
   storage,
 };
 const persistAuthReducer = persistReducer(persistConfig, authReducer);
+const persistProductReducer = persistReducer(
+  persistConfig,
+  bicyclePaymentReducer
+);
 export const store = configureStore({
   reducer: {
     [baseApi.reducerPath]: baseApi.reducer,
     isOpens: isOpenReducer,
     auth: persistAuthReducer,
     bicycles: bicyclesReducer,
+    PaymetDeatils: persistProductReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

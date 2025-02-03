@@ -5,15 +5,20 @@ import {
   increaseProduct,
   setTotalProduct,
 } from "@/redux/features/bicycle/bicycle.slice";
+import {
+  currentPaymentData,
+  setProducts,
+} from "@/redux/features/payment/payment.slice";
 import { useAppDispatch, useAppSelector } from "@/redux/hook";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 const ProductDeatils = () => {
   const { productId } = useParams();
   console.log(productId);
   const { data, isLoading } = useGetSingleBicycleQuery(productId);
   const product = data?.data;
+  const navigation = useNavigate();
   const totalCount = useAppSelector(currentValue);
   const dispatch = useAppDispatch();
   console.log(product);
@@ -23,6 +28,17 @@ const ProductDeatils = () => {
   };
   const handileClickdecrease = () => {
     dispatch(decreaseProduct(totalCount));
+  };
+
+  const handileClickPaymentsDeatils = () => {
+    dispatch(
+      setProducts({
+        product: product,
+        price: product.price * totalCount,
+        quantity: totalCount,
+      })
+    );
+    navigation("/payments");
   };
 
   return (
@@ -105,7 +121,10 @@ const ProductDeatils = () => {
               <button className="w-full py-2 px-4 lg:mb-0  md:mb-0 mb-4 bg-black text-white font-semibold rounded-md hover:bg-red-500">
                 Add to Cart
               </button>
-              <button className="w-full py-2 px-4 bg-red-400 text-white font-semibold rounded-md hover:bg-black">
+              <button
+                onClick={handileClickPaymentsDeatils}
+                className="w-full py-2 px-4 bg-red-400 text-white font-semibold rounded-md hover:bg-black"
+              >
                 Buy Now
               </button>
             </div>
