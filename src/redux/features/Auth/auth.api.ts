@@ -9,7 +9,14 @@ const authApi = baseApi.injectEndpoints({
         body: userData,
       }),
     }),
+    chengePassword: bulder.mutation({
+      query: (userData) => ({
+        url: "/auth/chenge-password",
+        method: "POST",
+        body: userData,
+      }),
+    }),
   }),
 });
 
-export const { useLoginMutation } = authApi;
+export const { useLoginMutation, useChengePasswordMutation } = authApi;

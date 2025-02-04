@@ -1,86 +1,9 @@
+import { useState } from "react";
+
 const SearchProduct = () => {
+  const [params, setParams] = useState("");
+  console.log(params);
   return (
-    // <div className="w-full h-full">
-    //   {/* Price Range Filter */}
-    //   <div className="mb-4">
-    //     <label className="block text-sm font-semibold mb-2">Price Range:</label>
-    //     <input
-    //       type="range"
-    //       min="0"
-    //       max="1000"
-    //       className="w-full h-2 bg-gray-200 rounded-lg"
-    //     />
-    //     <div className="flex justify-between text-sm text-gray-600">
-    //       <span>$0</span>
-    //       <span>$1000</span>
-    //     </div>
-    //   </div>
-
-    //   {/* Model Filter */}
-    //   <div className="mb-4">
-    //     <label className="block text-sm font-semibold mb-2">Model:</label>
-    //     <select className="w-full p-2 border-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-    //       <option>Select Model</option>
-    //       <option>Model X</option>
-    //       <option>Model Y</option>
-    //       <option>Model Z</option>
-    //     </select>
-    //   </div>
-
-    //   {/* Brand Filter */}
-    //   <div className="mb-4">
-    //     <label className="block text-sm font-semibold mb-2">Brand:</label>
-    //     <div className="flex items-center mb-2">
-    //       <input type="checkbox" id="brandA" className="mr-2" />
-    //       <label htmlFor="brandA" className="text-sm">
-    //         Brand A
-    //       </label>
-    //     </div>
-    //     <div className="flex items-center mb-2">
-    //       <input type="checkbox" id="brandB" className="mr-2" />
-    //       <label htmlFor="brandB" className="text-sm">
-    //         Brand B
-    //       </label>
-    //     </div>
-    //     <div className="flex items-center mb-2">
-    //       <input type="checkbox" id="brandC" className="mr-2" />
-    //       <label htmlFor="brandC" className="text-sm">
-    //         Brand C
-    //       </label>
-    //     </div>
-    //   </div>
-
-    //   {/* Category Filter */}
-    //   <div className="mb-4">
-    //     <label className="block text-sm font-semibold mb-2">Category:</label>
-    //     <div className="flex items-center mb-2">
-    //       <input type="checkbox" id="mountain" className="mr-2" />
-    //       <label htmlFor="mountain" className="text-sm">
-    //         Mountain
-    //       </label>
-    //     </div>
-    //     <div className="flex items-center mb-2">
-    //       <input type="checkbox" id="road" className="mr-2" />
-    //       <label htmlFor="road" className="text-sm">
-    //         Road
-    //       </label>
-    //     </div>
-    //     <div className="flex items-center mb-2">
-    //       <input type="checkbox" id="hybrid" className="mr-2" />
-    //       <label htmlFor="hybrid" className="text-sm">
-    //         Hybrid
-    //       </label>
-    //     </div>
-    //   </div>
-
-    //   {/* Availability Filter */}
-    //   <div className="flex items-center">
-    //     <input type="checkbox" id="inStock" className="mr-2" />
-    //     <label htmlFor="inStock" className="text-sm">
-    //       In Stock Only
-    //     </label>
-    //   </div>
-    // </div>
     <div className="p-4 py-7 bg-white shadow-md">
       <div className="flex ">
         <input
@@ -99,7 +22,10 @@ const SearchProduct = () => {
 
         {/* 🎚️ Price Range */}
         <div className="w-full ">
-          <select className="w-full p-3  rounded-md focus:outline-none focus:ring-2 focus:ring-red-400">
+          <select
+            onChange={(e) => setParams(e.target.value)}
+            className="w-full p-3  rounded-md focus:outline-none focus:ring-2 focus:ring-red-400"
+          >
             <option value="">Select Price Range</option>
             <option value="0-500">$0 - $500</option>
             <option value="500-1000">$500 - $1000</option>
@@ -109,7 +35,10 @@ const SearchProduct = () => {
 
         {/* 📌 Model Dropdown */}
         <div className="w-full ">
-          <select className="w-full p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-red-400">
+          <select
+            onChange={(e) => setParams(e.target.value)}
+            className="w-full p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-red-400"
+          >
             <option value="">Select Model</option>
             <option value="X">Model X</option>
             <option value="Y">Model Y</option>
@@ -119,7 +48,10 @@ const SearchProduct = () => {
 
         {/* 🔖 Brand Dropdown */}
         <div className="w-full ">
-          <select className="w-full p-3  rounded-md focus:outline-none focus:ring-2 focus:ring-red-400">
+          <select
+            onChange={(e) => setParams(e.target.value)}
+            className="w-full p-3  rounded-md focus:outline-none focus:ring-2 focus:ring-red-400"
+          >
             <option value="">Select Brand</option>
             <option value="BrandA">Brand A</option>
             <option value="BrandB">Brand B</option>
@@ -129,7 +61,10 @@ const SearchProduct = () => {
 
         {/* 🚴‍♂️ Category Dropdown */}
         <div className="w-full ">
-          <select className="w-full p-3  rounded-md focus:outline-none focus:ring-2 focus:ring-red-400">
+          <select
+            onChange={(e) => setParams(e.target.value)}
+            className="w-full p-3  rounded-md focus:outline-none focus:ring-2 focus:ring-red-400"
+          >
             <option value="">Select Category</option>
             <option value="Mountain">Mountain</option>
             <option value="Road">Road</option>
@@ -139,7 +74,10 @@ const SearchProduct = () => {
 
         {/* ✅ Availability Dropdown */}
         <div className="w-full ">
-          <select className="w-full p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-red-400">
+          <select
+            onChange={(e) => setParams(e.target.value)}
+            className="w-full p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-red-400"
+          >
             <option value="">Availability</option>
             <option value="InStock">In Stock</option>
             <option value="OutOfStock">Out of Stock</option>

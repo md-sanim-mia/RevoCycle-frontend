@@ -28,9 +28,8 @@ const paymentApi = baseApi.injectEndpoints({
     }),
     getuserAllOrders: builder.query({
       query: (email) => ({
-        url: "/bicycles/get-user-orders",
+        url: `/bicycles/user-all-orders?email=${email}`,
         method: "GET",
-        body: email,
       }),
       providesTags: ["bicycle"],
     }),

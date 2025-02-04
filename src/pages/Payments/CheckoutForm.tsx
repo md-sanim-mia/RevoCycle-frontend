@@ -8,6 +8,7 @@ import { useAppDispatch, useAppSelector } from "@/redux/hook";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
 import { FieldValues, SubmitHandler } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
 const CheckoutForm = ({
@@ -24,8 +25,8 @@ const CheckoutForm = ({
   const [clientSecret, setClientSecret] = useState();
   const [cartError, setCartError] = useState("");
   const [processing, setProcessing] = useState(false);
-  const [transactionId, setTransactionId] = useState();
   const [isPaymentIntent] = useCreatePaymentIntentMutation();
+  const navigation = useNavigate();
   const user = useAppSelector(useCurrenUser);
   const [isOrders] = useCreateOrdersMutation();
   const dispatch = useAppDispatch();
@@ -109,6 +110,7 @@ const CheckoutForm = ({
         dispatch(clearProduct());
         toast.success("success fully payment done ");
         setProcessing(false);
+        navigation("/dashboard/view-order");
       }
     }
   };

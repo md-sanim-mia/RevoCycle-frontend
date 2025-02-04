@@ -7,22 +7,14 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { HiDotsVertical } from "react-icons/hi";
-import { AiOutlineDelete } from "react-icons/ai";
-import {
-  useDeleteOrderProductMutation,
-  useGetAllOrdersQuery,
-} from "@/redux/features/payment/payment.api";
-import { toast } from "sonner";
-const PaymentHistory = () => {
-  const { data } = useGetAllOrdersQuery(undefined);
-  const [isOrderDeleted] = useDeleteOrderProductMutation();
+import { useCurrenUser } from "@/redux/features/Auth/auth.slice";
+import { useGetuserAllOrdersQuery } from "@/redux/features/payment/payment.api";
+import { useAppSelector } from "@/redux/hook";
+const UserOrders = () => {
+  const user = useAppSelector(useCurrenUser);
+  const { data } = useGetuserAllOrdersQuery(user?.email);
 
-  const handileClickdeletedOrder = async (id: string) => {
-    const res = await isOrderDeleted(id);
-    toast.success("order succes fully deleted");
-    console.log(res);
-  };
+  console.log(data?.data);
   return (
     <div>
       <Table>
@@ -30,25 +22,18 @@ const PaymentHistory = () => {
         <TableHeader>
           <TableRow>
             <TableHead className="">Product Name</TableHead>
-            <TableHead>Customer Email</TableHead>
-            <TableHead>Transaction Id</TableHead>
-            <TableHead>Order Status</TableHead>
-            <TableHead>Order Date</TableHead>
+            <TableHead>Status</TableHead>
+            <TableHead>Payment Date</TableHead>
             <TableHead>Quantity</TableHead>
-            <TableHead>Amount</TableHead>
-            <TableHead className="text-right">Action</TableHead>
+            <TableHead>Transaction Id</TableHead>
+            <TableHead className="text-right">Amount</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
-          {data?.data?.map((item: any, index: number) => (
+          {data?.data.map((item: any) => (
             <TableRow>
-              <TableCell className="font-medium flex items-center gap-3">
-                <p> {index + 1}</p>
-                <p> {item?.product?.name}</p>
-              </TableCell>
-              <TableCell>{item?.email}</TableCell>
-              <TableCell className="text-red-500">
-                {item?.transactionId}
+              <TableCell className="font-medium">
+                {item?.product?.name}
               </TableCell>
               <TableCell className="px-4 py-4 capitalize text-sm font-medium text-gray-700 whitespace-nowrap">
                 <div
@@ -85,14 +70,8 @@ const PaymentHistory = () => {
               </TableCell>
               <TableCell>{item?.createdAt}</TableCell>
               <TableCell>{item?.quantity}</TableCell>
-              <TableCell>${item?.totalPrice}</TableCell>
-              <TableCell className="text-right flex gap-3 mt-3">
-                <AiOutlineDelete
-                  onClick={() => handileClickdeletedOrder(item?._id)}
-                  className="text-xl hover:text-red-500 cursor-pointer"
-                />
-                <HiDotsVertical className="text-xl hover:text-red-500 cursor-pointer" />
-              </TableCell>
+              <TableCell>{item?.transactionId}</TableCell>
+              <TableCell className="text-right">${item?.totalPrice}</TableCell>
             </TableRow>
           ))}
         </TableBody>
@@ -101,4 +80,4 @@ const PaymentHistory = () => {
   );
 };
 
-export default PaymentHistory;
+export default UserOrders;

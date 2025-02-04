@@ -13,6 +13,7 @@ import { commonPath } from "./CommonRoutes";
 import ManinLayout from "@/layouts/ManinLayout";
 import UpdateProduct from "@/moduls/Dashboard/UpdateProduct";
 import Payment from "@/pages/Payments/Payment";
+import Profile from "@/moduls/Dashboard/All User/Profile";
 
 const router = createBrowserRouter([
   {
@@ -70,6 +71,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/update-Product/:productId",
         element: <UpdateProduct />,
+      },
+      {
+        path: "/dashboard/profile",
+        element: <Profile />,
       },
     ],
   },

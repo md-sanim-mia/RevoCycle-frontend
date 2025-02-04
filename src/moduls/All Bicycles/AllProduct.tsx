@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import ProductCard from "../Home/ProductCard";
 import { useGetAllBicycleQuery } from "@/redux/features/bicycle/bicycle.api";
 

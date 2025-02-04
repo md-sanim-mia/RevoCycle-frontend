@@ -1,5 +1,6 @@
 import { useGetSingleBicycleQuery } from "@/redux/features/bicycle/bicycle.api";
 import {
+  clearCount,
   currentValue,
   decreaseProduct,
   increaseProduct,
@@ -10,6 +11,7 @@ import {
   setProducts,
 } from "@/redux/features/payment/payment.slice";
 import { useAppDispatch, useAppSelector } from "@/redux/hook";
+import { useState } from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useNavigate, useParams } from "react-router-dom";
@@ -19,15 +21,20 @@ const ProductDeatils = () => {
   const { data, isLoading } = useGetSingleBicycleQuery(productId);
   const product = data?.data;
   const navigation = useNavigate();
-  const totalCount = useAppSelector(currentValue);
+
   const dispatch = useAppDispatch();
-  console.log(product);
+
+  const [totalCount, setCount] = useState(1);
   dispatch(setTotalProduct(product?.quantity));
   const handileClickincrease = () => {
-    dispatch(increaseProduct(totalCount));
+    if (totalCount < product?.quantity) {
+      setCount(totalCount + 1);
+    }
   };
   const handileClickdecrease = () => {
-    dispatch(decreaseProduct(totalCount));
+    if (totalCount > 1) {
+      setCount(totalCount - 1);
+    }
   };
 
   const handileClickPaymentsDeatils = () => {

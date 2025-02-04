@@ -22,10 +22,13 @@ const bicycleSlice = createSlice({
         state.productCounts = acction.payload - 1;
       }
     },
+    clearCount: (state) => {
+      state.productCounts = 1;
+    },
   },
 });
 
-export const { increaseProduct, decreaseProduct, setTotalProduct } =
+export const { increaseProduct, decreaseProduct, setTotalProduct, clearCount } =
   bicycleSlice.actions;
 
 export default bicycleSlice.reducer;

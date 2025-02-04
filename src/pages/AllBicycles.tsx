@@ -7,7 +7,6 @@ const AllBicycles = () => {
     <div className="">
       <BicycleBanner />
       <BicyclesCard />
-      <AllProduct />
     </div>
   );
 };

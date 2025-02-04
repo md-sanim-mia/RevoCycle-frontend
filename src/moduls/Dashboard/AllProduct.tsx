@@ -51,7 +51,7 @@ const AllProduct = () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {data?.data?.map((item: TProduct, index: number) => (
+          {/* {data?.data?.map((item: TProduct, index: number) => (
             <TableRow>
               <TableCell className="font-medium flex gap-3">
                 <p> {index + 1}</p> {item.name}
@@ -81,7 +81,7 @@ const AllProduct = () => {
                 />
               </TableCell>
             </TableRow>
-          ))}
+          ))} */}
         </TableBody>
       </Table>
     </div>
