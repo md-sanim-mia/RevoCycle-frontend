@@ -1,3 +1,4 @@
+import Loding from "@/components/Loding/Loding";
 import {
   Table,
   TableBody,
@@ -12,11 +13,12 @@ import { useGetuserAllOrdersQuery } from "@/redux/features/payment/payment.api";
 import { useAppSelector } from "@/redux/hook";
 const UserOrders = () => {
   const user = useAppSelector(useCurrenUser);
-  const { data } = useGetuserAllOrdersQuery(user?.email);
+  const { data, isFetching } = useGetuserAllOrdersQuery(user?.email);
 
   console.log(data?.data);
   return (
     <div>
+      {isFetching && <Loding />}
       <Table>
         <TableCaption>A list of your recent invoices.</TableCaption>
         <TableHeader>

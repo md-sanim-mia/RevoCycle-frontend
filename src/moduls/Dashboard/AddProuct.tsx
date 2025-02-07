@@ -1,3 +1,4 @@
+import Loding from "@/components/Loding/Loding";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -9,7 +10,7 @@ import { toast } from "sonner";
 
 const AddProuct = () => {
   const { register, handleSubmit, reset } = useForm();
-  const [isBicycles] = useCreateBicycleApiMutation();
+  const [isBicycles, { isLoading }] = useCreateBicycleApiMutation();
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     let productImage = [];
     const image1 = await ImageGenetors(data.image[0]);
@@ -35,6 +36,7 @@ const AddProuct = () => {
   };
   return (
     <div>
+      {isLoading && <Loding />}
       <Card className="max-w-screen-xl lg:w-[60%] mx-auto mt-10 p-6 shadow-lg rounded-2xl">
         <CardContent>
           <h2 className="text-xl font-semibold text-center mb-4">

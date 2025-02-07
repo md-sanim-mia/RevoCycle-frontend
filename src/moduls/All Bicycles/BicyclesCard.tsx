@@ -4,6 +4,7 @@ import {
   useGetAllBicycleQuery,
   useGetAllCategoryBicycleQuery,
 } from "@/redux/features/bicycle/bicycle.api";
+import Loding from "@/components/Loding/Loding";
 
 const BicyclesCard = () => {
   const [search, setSearch] = useState("");
@@ -12,7 +13,8 @@ const BicyclesCard = () => {
     value: "",
   });
   const { data } = useGetAllBicycleQuery(params);
-  const { data: categoryData } = useGetAllCategoryBicycleQuery(undefined);
+  const { data: categoryData, isFetching } =
+    useGetAllCategoryBicycleQuery(undefined);
   const Productscategory = categoryData?.data?.filter(
     (item: any, index: any, self: any) =>
       index === self.findIndex((t: any) => t.category === item.category)
@@ -31,6 +33,7 @@ const BicyclesCard = () => {
 
   return (
     <div className="max-w-screen-xl mx-auto py-20  h-full gap-3">
+      {isFetching && <Loding />}
       <div>
         <div className="p-4 py-7 bg-white shadow-md">
           <div className="flex ">

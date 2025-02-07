@@ -1,3 +1,4 @@
+import Loding from "@/components/Loding/Loding";
 import { useChengePasswordMutation } from "@/redux/features/Auth/auth.api";
 import { useCurrenUser } from "@/redux/features/Auth/auth.slice";
 import { useAppSelector } from "@/redux/hook";
@@ -11,15 +12,17 @@ const Profile = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const [isChengePassword] = useChengePasswordMutation();
+  const [isChengePassword, { isLoading }] = useChengePasswordMutation();
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     const res = await isChengePassword(data);
     console.log(res);
     toast.success("password succes fully chenge");
   };
+  console.log(errors);
 
   return (
     <div>
+      {isLoading && <Loding />}
       <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
         <form
           onSubmit={handleSubmit(onSubmit)}

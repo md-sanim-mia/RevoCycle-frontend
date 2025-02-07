@@ -14,8 +14,9 @@ import {
   useGetAllOrdersQuery,
 } from "@/redux/features/payment/payment.api";
 import { toast } from "sonner";
+import Loding from "@/components/Loding/Loding";
 const PaymentHistory = () => {
-  const { data } = useGetAllOrdersQuery(undefined);
+  const { data, isFetching } = useGetAllOrdersQuery(undefined);
   const [isOrderDeleted] = useDeleteOrderProductMutation();
 
   const handileClickdeletedOrder = async (id: string) => {
@@ -26,6 +27,7 @@ const PaymentHistory = () => {
   return (
     <div>
       <Table>
+        {isFetching && <Loding />}
         <TableCaption>A list of your recent invoices.</TableCaption>
         <TableHeader>
           <TableRow>

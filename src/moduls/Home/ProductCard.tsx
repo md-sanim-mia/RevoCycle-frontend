@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -21,7 +20,6 @@ export type TItems = {
   _id: string;
 };
 const ProductCard = ({ item }: { item: TItems }) => {
-
   return (
     <Card className="w-full max-w-[313px] relative group overflow-hidden border rounded-lg shadow-lg">
       <div className="relative group">

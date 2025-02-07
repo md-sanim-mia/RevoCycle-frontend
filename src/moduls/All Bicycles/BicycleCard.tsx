@@ -2,12 +2,10 @@ import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { FC } from "react";
 import { FaShoppingCart, FaEye, FaHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 export type TItems = {

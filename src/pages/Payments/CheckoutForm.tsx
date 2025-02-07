@@ -1,3 +1,4 @@
+import Loding from "@/components/Loding/Loding";
 import { useCurrenUser } from "@/redux/features/Auth/auth.slice";
 import {
   useCreateOrdersMutation,
@@ -25,6 +26,7 @@ const CheckoutForm = ({
   const [clientSecret, setClientSecret] = useState();
   const [cartError, setCartError] = useState("");
   const [processing, setProcessing] = useState(false);
+  const [isLoading, setIsLoding] = useState(false);
   const [isPaymentIntent] = useCreatePaymentIntentMutation();
   const navigation = useNavigate();
   const user = useAppSelector(useCurrenUser);
@@ -32,12 +34,15 @@ const CheckoutForm = ({
   const dispatch = useAppDispatch();
   console.log(user);
   useEffect(() => {
+    setIsLoding(true);
     const fetchPaymentIntent = async () => {
       if (price > 0) {
         try {
           const res = await isPaymentIntent({ price }).unwrap();
           setClientSecret(res?.data?.client_secret);
+          setIsLoding(false);
         } catch (error) {
+          setIsLoding(false);
           console.error("Payment Intent Error:", error);
         }
       }
@@ -116,6 +121,7 @@ const CheckoutForm = ({
   };
   return (
     <div className="bg-white p-8 rounded-lg shadow-lg border border-green-100 max-w-md mx-auto">
+      {isLoading && <Loding />}
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* CardElement Section */}
         <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">

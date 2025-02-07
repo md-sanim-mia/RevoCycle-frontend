@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { loginSchema, registerSchema } from "@/Schema/loginSchema";
+import { registerSchema } from "@/Schema/loginSchema";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Link, useNavigate } from "react-router-dom";
@@ -9,6 +9,7 @@ import { useCreateUserApiMutation } from "@/redux/features/User/user.api";
 import { verifyToken } from "@/utils/verifyToken";
 import { useAppDispatch } from "@/redux/hook";
 import { setUser } from "@/redux/features/Auth/auth.slice";
+import { toast } from "sonner";
 const Register = () => {
   const {
     register,
@@ -19,11 +20,17 @@ const Register = () => {
   const navigation = useNavigate();
   const dispatch = useAppDispatch();
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-    const res = await createUser(data).unwrap();
-    const decodeUser = verifyToken(res.data.accessToken);
-    dispatch(setUser({ user: decodeUser, token: res.data.accessToken }));
-    navigation("/");
-    console.log(res.data);
+    try {
+      const res = await createUser(data).unwrap();
+      const decodeUser = verifyToken(res.data.accessToken);
+      dispatch(setUser({ user: decodeUser, token: res.data.accessToken }));
+      toast.success("user success fully account created");
+      navigation("/");
+      console.log(res.data);
+    } catch (error: any) {
+      console.log(error);
+      toast.error(error?.data?.message);
+    }
   };
 
   return (

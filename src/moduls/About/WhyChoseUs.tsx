@@ -1,5 +1,3 @@
-import React from "react";
-
 const WhyChoseUs = () => {
   return (
     <div className="py-16 max-w-screen-xl mx-auto px-4 sm:px-8 lg:px-16 bg-gray-50">

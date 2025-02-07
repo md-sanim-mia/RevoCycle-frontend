@@ -10,11 +10,12 @@ import {
 import { BiEdit } from "react-icons/bi";
 import {
   useDeleteProductMutation,
-  useGetAllBicycleQuery,
+  useGetAllCategoryBicycleQuery,
 } from "@/redux/features/bicycle/bicycle.api";
 import { AiOutlineDelete } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
+import Loding from "@/components/Loding/Loding";
 export type TProduct = {
   image: string;
   productImage: string[];
@@ -29,7 +30,7 @@ export type TProduct = {
   _id: string;
 };
 const AllProduct = () => {
-  const { data } = useGetAllBicycleQuery(undefined);
+  const { data, isFetching } = useGetAllCategoryBicycleQuery(undefined);
   const [isDeleted] = useDeleteProductMutation();
   const handileClickDeleted = async (id: string) => {
     await isDeleted(id);
@@ -37,6 +38,7 @@ const AllProduct = () => {
   };
   return (
     <div>
+      {isFetching && <Loding />}
       <Table>
         <TableCaption>A list of your recent invoices.</TableCaption>
         <TableHeader>
@@ -51,7 +53,7 @@ const AllProduct = () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {/* {data?.data?.map((item: TProduct, index: number) => (
+          {data?.data?.map((item: TProduct, index: number) => (
             <TableRow>
               <TableCell className="font-medium flex gap-3">
                 <p> {index + 1}</p> {item.name}
@@ -81,7 +83,7 @@ const AllProduct = () => {
                 />
               </TableCell>
             </TableRow>
-          ))} */}
+          ))}
         </TableBody>
       </Table>
     </div>

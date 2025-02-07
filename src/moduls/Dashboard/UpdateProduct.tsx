@@ -1,3 +1,4 @@
+import Loding from "@/components/Loding/Loding";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -15,7 +16,7 @@ const UpdateProduct = () => {
   const { register, handleSubmit, reset } = useForm();
   const { productId } = useParams();
   const { data } = useGetSingleBicycleQuery(productId);
-  const [isBicycles] = useCreateBicycleApiMutation();
+  const [isBicycles, { isLoading }] = useCreateBicycleApiMutation();
   const product = data?.data;
   const navigation = useNavigate();
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
@@ -54,6 +55,7 @@ const UpdateProduct = () => {
   };
   return (
     <div>
+      {isLoading && <Loding />}
       <Card className="max-w-screen-xl lg:w-[60%] mx-auto mt-10 p-6 shadow-lg rounded-2xl">
         <CardContent>
           <h2 className="text-xl font-semibold text-center mb-4">

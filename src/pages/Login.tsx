@@ -9,6 +9,7 @@ import { useLoginMutation } from "@/redux/features/Auth/auth.api";
 import { useAppDispatch } from "@/redux/hook";
 import { setUser } from "@/redux/features/Auth/auth.slice";
 import { verifyToken } from "@/utils/verifyToken";
+import { toast } from "sonner";
 const Login = () => {
   const {
     register,
@@ -19,12 +20,18 @@ const Login = () => {
   const [loging] = useLoginMutation();
   const dispatch = useAppDispatch();
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-    console.log(data);
-    const res = await loging(data).unwrap();
-    const decodeUser = verifyToken(res.data.accessToken);
-    dispatch(setUser({ user: decodeUser, token: res.data.accessToken }));
-    navigation("/");
-    console.log("Login Data:", res);
+    try {
+      console.log(data);
+      const res = await loging(data).unwrap();
+      const decodeUser = verifyToken(res.data.accessToken);
+      dispatch(setUser({ user: decodeUser, token: res.data.accessToken }));
+      toast.success("user succes fully loging");
+      navigation("/");
+      console.log("Login Data:", res.error);
+    } catch (error: any) {
+      console.log(error.data.message);
+      toast.error(error?.data?.message);
+    }
   };
 
   return (

@@ -1,3 +1,4 @@
+import Loding from "@/components/Loding/Loding";
 import {
   Table,
   TableBody,
@@ -49,6 +50,7 @@ const AllUser = () => {
   };
   return (
     <div>
+      {isFetching && <Loding />}
       <Table>
         <TableCaption>A list of your recent invoices.</TableCaption>
         <TableHeader>

@@ -1,4 +1,3 @@
-import App from "@/App";
 import Dashboard from "@/layouts/Dashboard";
 import ProductDeatils from "@/moduls/All Bicycles/ProductDeatils";
 import About from "@/pages/About";
@@ -14,6 +13,7 @@ import ManinLayout from "@/layouts/ManinLayout";
 import UpdateProduct from "@/moduls/Dashboard/UpdateProduct";
 import Payment from "@/pages/Payments/Payment";
 import Profile from "@/moduls/Dashboard/All User/Profile";
+import PrivtedRouted from "./PrivtedRouted";
 
 const router = createBrowserRouter([
   {
@@ -34,11 +34,20 @@ const router = createBrowserRouter([
       },
       {
         path: "/product-details/:productId",
-        element: <ProductDeatils />,
+        element: (
+          <PrivtedRouted>
+            {" "}
+            <ProductDeatils />
+          </PrivtedRouted>
+        ),
       },
       {
         path: "/payments",
-        element: <Payment />,
+        element: (
+          <PrivtedRouted>
+            <Payment />
+          </PrivtedRouted>
+        ),
       },
     ],
   },
@@ -52,21 +61,41 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard />,
+    element: (
+      <PrivtedRouted>
+        {" "}
+        <Dashboard />
+      </PrivtedRouted>
+    ),
   },
   {
     path: "/dashboard",
-    element: <Dashboard />,
+    element: (
+      <PrivtedRouted>
+        {" "}
+        <Dashboard />
+      </PrivtedRouted>
+    ),
     children: routeGenerate(adminPaht),
   },
   {
     path: "/dashboard",
-    element: <Dashboard />,
+    element: (
+      <PrivtedRouted>
+        {" "}
+        <Dashboard />
+      </PrivtedRouted>
+    ),
     children: routeGenerate(commonPath),
   },
   {
     path: "/dashboard",
-    element: <Dashboard />,
+    element: (
+      <PrivtedRouted>
+        {" "}
+        <Dashboard />
+      </PrivtedRouted>
+    ),
     children: [
       {
         path: "/dashboard/update-Product/:productId",

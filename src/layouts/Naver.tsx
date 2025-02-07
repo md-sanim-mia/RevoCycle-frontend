@@ -195,16 +195,18 @@ const Naver = () => {
                 >
                   About
                 </NavLink>
-                <NavLink
-                  to={`/dashboard/${role}`}
-                  className={({ isActive }) =>
-                    isActive
-                      ? "text-white font-semibold   py-2 mx-3"
-                      : " py-2 mx-3 mt-2 hover:text-white  transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 text-gray-400"
-                  }
-                >
-                  Dashboard
-                </NavLink>
+                {user && (
+                  <NavLink
+                    to={`/dashboard/${role}`}
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-white font-semibold   py-2 mx-3"
+                        : " py-2 mx-3 mt-2 hover:text-white  transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 text-gray-400"
+                    }
+                  >
+                    Dashboard
+                  </NavLink>
+                )}
                 <div onClick={handileClickIsShow} className="mt-2 mx-3">
                   <DynamicIconButton icon={RiHeartAddLine} count={6} />
                 </div>

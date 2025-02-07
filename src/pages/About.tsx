@@ -1,7 +1,7 @@
 import AboutBanner from "@/moduls/About/AboutBanner";
 import ContactFrom from "@/moduls/About/ContactFrom";
 import Story from "@/moduls/About/Story";
-import WhyChoseUs from "@/moduls/About/whyChoseUs";
+import WhyChoseUs from "@/moduls/About/WhyChoseUs";
 
 const About = () => {
   return (

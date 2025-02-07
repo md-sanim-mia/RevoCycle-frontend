@@ -1,5 +1,3 @@
-import React from "react";
-
 const Story = () => {
   return (
     <div className="max-w-screen-xl mx-auto">
