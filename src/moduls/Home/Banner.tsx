@@ -1,71 +1,171 @@
-import "animate.css";
-const Banner = () => {
+import { useState, useEffect } from "react";
+import { ChevronLeft, ChevronRight, ArrowRight, Play } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+const slides = [
+  {
+    id: 1,
+    title: "Find Your Perfect Ride",
+    subtitle: "Premium Bicycles for Every Adventure",
+    description:
+      "Discover our collection of high-quality bikes designed for comfort, performance, and style.",
+    image:
+      "https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?q=80&w=822&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    cta: "Shop Now",
+    ctaSecondary: "Watch Video",
+    offer: "Up to 30% Off",
+  },
+  {
+    id: 2,
+    title: "Electric. Effortless. Everywhere.",
+    subtitle: "The Future of Urban Commuting",
+    description:
+      "Experience the power and convenience of our premium electric bicycle collection.",
+    image:
+      "https://images.unsplash.com/photo-1485965120184-e220f721d03e?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    cta: "Explore E-Bikes",
+    ctaSecondary: "Learn More",
+    offer: "Free Shipping",
+  },
+  {
+    id: 3,
+    title: "Built for Adventure",
+    subtitle: "Professional Mountain & Road Bikes",
+    description:
+      "Conquer any terrain with bikes engineered for performance and durability.",
+    image:
+      "https://images.unsplash.com/photo-1505705694340-019e1e335916?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    cta: "View Collection",
+    ctaSecondary: "Find Store",
+    offer: "Expert Assembly",
+  },
+];
+
+export function HeroCarousel() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
   return (
-    <div className="max-w-screen-xl lg:h-[520px]  mx-auto  lg:flex gap-4 lg:px-0 px-3">
-      <section
-        className="relative lg:w-3/5  bg-cover bg-center py-4"
-        style={{
-          backgroundImage:
-            "url(https://plus.unsplash.com/premium_photo-1678718713393-2b88cde9605b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YmljeWNsZXxlbnwwfHwwfHx8MA%3D%3D)",
-        }}
-      >
-        {/* Gradient overlay for a smooth fade effect */}
-        <div className="absolute inset-0 bg-black opacity-30"></div>
-
-        <div className="relative  flex flex-col justify-center items-center text-center text-white space-y-6 h-full px-4">
-          {/* Heading with elegant font and subtle animation */}
-          <h1 className="text-4xl lg:text-5xl font-semibold text-shadow-xl tracking-wide animate__animated animate__fadeIn ">
-            Find Your Perfect <br /> Bicycle
-          </h1>
-
-          {/* Subtitle with soft typography */}
-          <p className="text-xl bg-inherit animate__animated animate__fadeIn animate__delay-1s max-w-2xl mx-auto">
-            Explore our collection of bicycles crafted for every journey.
-            Quality, style, and comfort await you.
-          </p>
-
-          {/* Button container */}
-          <div className="flex space-x-8 animate__animated animate__fadeIn animate__delay-2s">
-            {/* Shop Now Button */}
-            <button className="px-5 py-3 bg-gradient-to-r from-red-300 to-red-500 text-white font-medium rounded-full shadow-xl transform hover:scale-105 transition-all duration-200 ease-in-out">
-              Shop Now
-            </button>
-
-            {/* Explore More Button */}
-            <button className="px-5 py-3 border-2 border-red-300 text-red-400 bg-white font-medium rounded-full shadow-xl transform hover:bg-white hover:text-black transition-all duration-200 ease-in-out">
-              Explore More
-            </button>
+    <div className="relative h-[450px] md:h-[550px] lg:h-[650px] overflow-hidden bg-gray-100">
+      {slides.map((slide, index) => (
+        <div
+          key={slide.id}
+          className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
+            index === currentSlide ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          {/* Background Image */}
+          <div className="absolute inset-0">
+            <img
+              src={slide.image || "/placeholder.svg"}
+              alt={slide.title}
+              className="object-cover object-center w-full h-full"
+            />
+            {/* Clean overlay */}
+            <div className="absolute inset-0 bg-black/30" />
           </div>
-        </div>
-      </section>
-      <div className=" lg:w-[40%] h-full lg:grid  md:flex md:gap-4 lg:mt-0  mt-4">
-        <div className="w-full ">
-          <div className="bg-white h-[253px] py-6 hover:scale-105 text-black shadow-xl rounded-xl text-center animate__animated animate__fadeIndown">
-            <div>
-              <h3 className="text-3xl font-bold  text-red-400">
-                Limited Edition Bicycle
-              </h3>
-              <p className="mt-3 text-lg">
-                Experience the best ride with our premium model. Available now
-                at a special discount!
-              </p>
-              <button className="mt-5  px-5 py-3 bg-gradient-to-r from-red-300 to-red-500 text-white font-medium rounded-full shadow-xl  hover:scale-105">
-                Buy Now
-              </button>
+
+          {/* Content Container */}
+          <div className="relative h-full flex items-center">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="max-w-2xl">
+                {/* Offer Badge */}
+                <div className="mb-6">
+                  <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-white/90 text-gray-900 backdrop-blur-sm">
+                    {slide.offer}
+                  </span>
+                </div>
+
+                {/* Main Content */}
+                <div className="space-y-6">
+                  <div className="space-y-4">
+                    <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
+                      {slide.title}
+                    </h1>
+                    <p className="text-xl sm:text-2xl text-white/90 font-light">
+                      {slide.subtitle}
+                    </p>
+                    <p className="text-lg text-white/80 max-w-lg leading-relaxed">
+                      {slide.description}
+                    </p>
+                  </div>
+
+                  {/* CTA Buttons */}
+                  <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                    <Button
+                      size="lg"
+                      className="bg-white text-gray-900 hover:bg-gray-100 px-8 py-3 text-base font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+                    >
+                      {slide.cta}
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                    <Button
+                      variant="outline"
+                      size="lg"
+                      className="border-white/50 text-white hover:bg-white/10 px-8 py-3 text-base font-medium backdrop-blur-sm bg-white/5"
+                    >
+                      <Play className="mr-2 h-4 w-4" />
+                      {slide.ctaSecondary}
+                    </Button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+      ))}
 
-        <div className=" h-full lg:mt-0 md:mt-0 mt-4 w-full hover:scale-105 cursor-pointer">
-          <img
-            className="h-[253px] w-full"
-            src="https://media.istockphoto.com/id/1430800922/photo/adventure-street-travel-and-bike-break-outdoor-in-urban-city-in-summer-woman-with-vintage.webp?a=1&b=1&s=612x612&w=0&k=20&c=f0n8LPebg13ZXMo7Rz65Mbok8-XFhT1KzAXIDZ0WO7w="
-            alt=""
+      {/* Navigation Arrows */}
+      <button
+        onClick={prevSlide}
+        className="absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-white/30 transition-all duration-300 flex items-center justify-center"
+      >
+        <ChevronLeft className="h-5 w-5" />
+      </button>
+      <button
+        onClick={nextSlide}
+        className="absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-white/30 transition-all duration-300 flex items-center justify-center"
+      >
+        <ChevronRight className="h-5 w-5" />
+      </button>
+
+      {/* Dots Indicator */}
+      <div className="absolute bottom-6 lg:bottom-8 left-1/2 -translate-x-1/2 flex space-x-3">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentSlide(index)}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              index === currentSlide
+                ? "bg-white w-8"
+                : "bg-white/50 hover:bg-white/75"
+            }`}
           />
-        </div>
+        ))}
+      </div>
+
+      {/* Slide Counter */}
+      <div className="absolute bottom-6 lg:bottom-8 right-4 lg:right-8 text-white/80 text-sm font-medium">
+        <span className="text-white">
+          {String(currentSlide + 1).padStart(2, "0")}
+        </span>
+        <span className="mx-1">/</span>
+        <span>{String(slides.length).padStart(2, "0")}</span>
       </div>
     </div>
   );
-};
-
-export default Banner;
+}

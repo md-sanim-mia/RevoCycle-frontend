@@ -6,6 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { ArrowUpRight } from "lucide-react";
 import { FaShoppingCart, FaEye, FaHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 export type TItems = {
@@ -57,7 +58,18 @@ const ProductCard = ({ item }: { item: TItems }) => {
           <p className=" font-bold">stock : 0/{item.quantity}</p>{" "}
         </div>
       </CardContent>
-      <CardFooter className=""></CardFooter>
+      <CardFooter className="">
+        <Link
+          to={`/product-details/${item._id}`}
+          className="inline-flex items-center text-sm font-medium  hover:text-red-500 transition-colors duration-300"
+        >
+          View Deatils
+        </Link>
+        <ArrowUpRight
+          size={16}
+          className="ml-1 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+        />
+      </CardFooter>
     </Card>
   );
 };

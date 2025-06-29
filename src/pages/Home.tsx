@@ -1,17 +1,24 @@
 import BikesCollection from "@/moduls/BikesCollection";
-import Banner from "@/moduls/Home/Banner";
+
 import HeroBenner from "@/moduls/Home/HeroBenner";
 import Products from "@/moduls/Home/Products";
 import Testimonials from "@/moduls/Home/Testimonials";
+import Category from "./Categorys/Category";
+import { HeroCarousel } from "@/moduls/Home/Banner";
+import { AboutSection } from "@/moduls/Home/WhyChose";
+import { BlogSection } from "@/moduls/Home/Blogs";
 
 const Home = () => {
   return (
     <div className="min-h-screen">
-      <Banner></Banner>
+      <HeroCarousel />
+      <Category />
       <HeroBenner />
       <Products />
       <BikesCollection />
-      <div className="pb-20">
+      <AboutSection />
+      <BlogSection />
+      <div className="py-20">
         <Testimonials />
       </div>
     </div>
