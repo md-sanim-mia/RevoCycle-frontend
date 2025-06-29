@@ -1,6 +1,8 @@
 import Loding from "@/components/Loding/Loding";
 import ProductCard from "./ProductCard";
 import { useGetAllCategoryBicycleQuery } from "@/redux/features/bicycle/bicycle.api";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Products = () => {
   const { data, isLoading } = useGetAllCategoryBicycleQuery(undefined);
@@ -110,10 +112,21 @@ const Products = () => {
     <div className="max-w-screen-xl mx-auto lg:px-0 px-3">
       {isLoading && <Loding />}
       <h2 className="text-4xl font-bold text-red-400 mb-4">Hot Sell</h2>
-      <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 md:gap-3 gap-3 lg:gap-4">
+      <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 md:gap-3 gap-3 lg:gap-4">
         {bikes.slice(0, 8).map((item: any) => (
           <ProductCard key={item?.name} product={item} />
         ))}
+      </div>
+      <div className="text-center mt-8">
+        <Link to="/blog">
+          <Button
+            variant="outline"
+            size="lg"
+            className="border-red-500 text-red-500 hover:bg-red-500 hover:text-white px-8 bg-transparent"
+          >
+            View All Products
+          </Button>
+        </Link>
       </div>
     </div>
   );

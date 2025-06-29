@@ -4,6 +4,7 @@ import isOpenReducer from "./features/sideberSlice";
 import authReducer from ".//features/Auth/auth.slice";
 import bicyclesReducer from "./features/bicycle/bicycle.slice";
 import bicyclePaymentReducer from "./features/payment/payment.slice";
+import addToCardsReducer from "./features/AddToCard/addToCard.slice";
 import {
   persistStore,
   persistReducer,
@@ -24,10 +25,18 @@ const persistConfigs = {
   key: "product",
   storage,
 };
+const persistConfigProduct = {
+  key: "addToCard",
+  storage,
+};
 const persistAuthReducer = persistReducer(persistConfig, authReducer);
 const persistProductReducer = persistReducer(
   persistConfigs,
   bicyclePaymentReducer
+);
+const persistAddToCardReducer = persistReducer(
+  persistConfigProduct,
+  addToCardsReducer
 );
 export const store = configureStore({
   reducer: {
@@ -36,6 +45,7 @@ export const store = configureStore({
     auth: persistAuthReducer,
     PaymetDeatils: persistProductReducer,
     bicycles: bicyclesReducer,
+    addToCards: persistAddToCardReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

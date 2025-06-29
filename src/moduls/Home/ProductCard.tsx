@@ -1,5 +1,10 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import {
+  addToCardProduct,
+  allPorducts,
+} from "@/redux/features/AddToCard/addToCard.slice";
+import { useAppDispatch, useAppSelector } from "@/redux/hook";
 
 import { Bookmark, Eye, Heart, Share2, ShoppingCart, Star } from "lucide-react";
 import { useState } from "react";
@@ -18,6 +23,8 @@ export type TItems = {
 const ProductCard = ({ product }: { product: any }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [isWishlisted, setIsWishlisted] = useState(false);
+  const dispatch = useAppDispatch();
+
   return (
     <div className="group relative bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-2xl hover:border-gray-200 transition-all duration-500 transform hover:-translate-y-1">
       {/* Image Container with Advanced Effects */}
@@ -92,7 +99,7 @@ const ProductCard = ({ product }: { product: any }) => {
         <div className="absolute bottom-2 left-2 right-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-20">
           <Button className="w-full bg-black/90 backdrop-blur-md text-white hover:bg-red-500 transition-all duration-300 rounded-xl border border-white/20 shadow-lg hover:shadow-xl text-sm h-9">
             <ShoppingCart className="w-4 h-4 mr-1" />
-            Quick Add
+            Buy Now
           </Button>
         </div>
 
@@ -117,10 +124,11 @@ const ProductCard = ({ product }: { product: any }) => {
         </div> */}
 
         {/* Title with Hover Effect */}
-        <Link to={`/products/${product.id}`}>
-          <h3 className="font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-red-500 transition-colors duration-300 text-lg leading-tight">
-            {product.name}
-          </h3>
+        <Link
+          to={`/product-details/${product.id}`}
+          className="block font-bold text-gray-900 hover:underline mb-3 line-clamp-2 group-hover:text-red-500 transition-colors duration-300 text-lg leading-tight"
+        >
+          {product.name}
         </Link>
 
         {/* Enhanced Rating */}
@@ -185,7 +193,10 @@ const ProductCard = ({ product }: { product: any }) => {
 
         {/* Action Buttons */}
         <div className="flex gap-2">
-          <Button className="flex-1 bg-red-500 hover:bg-red-600 text-white rounded-xl transition-all duration-300 shadow-md hover:shadow-lg">
+          <Button
+            onClick={() => dispatch(addToCardProduct(product))}
+            className="flex-1 bg-red-500 hover:bg-red-600 text-white rounded-xl transition-all duration-300 shadow-md hover:shadow-lg"
+          >
             Add to Cart
           </Button>
           <Button
@@ -198,7 +209,7 @@ const ProductCard = ({ product }: { product: any }) => {
       </div>
 
       {/* Premium Shine Effect */}
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+      <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500">
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
       </div>
     </div>

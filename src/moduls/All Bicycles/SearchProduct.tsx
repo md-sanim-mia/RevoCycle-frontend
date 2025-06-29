@@ -9,7 +9,7 @@ const SearchProduct = () => {
         <input
           type="text"
           className="h-[43px] rounded-l-lg border-2 pl-2 border-red-200 w-full md:w-[380px] lg:w-[350px]"
-          placeholder="Search Blog"
+          placeholder="Search Products"
           name=""
           id=""
         />
