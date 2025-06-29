@@ -18,7 +18,7 @@ const Home = () => {
       <BikesCollection />
       <AboutSection />
       <BlogSection />
-      <div className="py-20">
+      <div className="pb-20">
         <Testimonials />
       </div>
     </div>

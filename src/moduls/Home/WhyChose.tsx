@@ -33,7 +33,7 @@ export function AboutSection() {
       <div className="grid lg:grid-cols-2 gap-12 items-center">
         <div>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            Why Choose BikeHub?
+            Why Choose RevoCycle?
           </h2>
           <p className="text-lg text-gray-600 mb-8">
             We're passionate cyclists committed to providing you with the best
