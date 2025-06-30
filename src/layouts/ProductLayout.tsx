@@ -1,7 +1,12 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { allPorducts } from "@/redux/features/AddToCard/addToCard.slice";
+import {
+  allPorducts,
+  deleteProduct,
+  dicementQuantity,
+  incementQuantity,
+} from "@/redux/features/AddToCard/addToCard.slice";
 
 import { isShowSideber, setCardSideber } from "@/redux/features/sideberSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hook";
@@ -118,7 +123,7 @@ const ProductLayout = () => {
                           <Button
                             variant="ghost"
                             size="sm"
-                            // onClick={() => onRemoveItem(item.id)}
+                            onClick={() => dispatch(deleteProduct(item.id))}
                             className="opacity-0 group-hover:opacity-100 transition-opacity text-gray-400 hover:text-red-500 p-1"
                           >
                             <Trash2 className="w-4 h-4" />
@@ -142,12 +147,9 @@ const ProductLayout = () => {
                             <Button
                               variant="ghost"
                               size="sm"
-                              // onClick={() =>
-                              //   onUpdateQuantity(
-                              //     item.id,
-                              //     Math.max(1, item.quantity - 1)
-                              //   )
-                              // }
+                              onClick={() =>
+                                dispatch(dicementQuantity(item.id))
+                              }
                               disabled={item.quantity <= 1}
                               className="h-8 w-8 p-0"
                             >
@@ -159,9 +161,9 @@ const ProductLayout = () => {
                             <Button
                               variant="ghost"
                               size="sm"
-                              // onClick={() =>
-                              //   onUpdateQuantity(item.id, item.quantity + 1)
-                              // }
+                              onClick={() =>
+                                dispatch(incementQuantity(item.id))
+                              }
                               className="h-8 w-8 p-0"
                             >
                               <Plus className="w-3 h-3" />
@@ -225,7 +227,7 @@ const ProductLayout = () => {
                 <div className="flex justify-between font-bold text-lg">
                   <span>Total</span>
 
-                  <span>${total}</span>
+                  <span>${total.toFixed(2)}</span>
                 </div>
               </div>
 

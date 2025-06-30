@@ -5,6 +5,8 @@ import authReducer from ".//features/Auth/auth.slice";
 import bicyclesReducer from "./features/bicycle/bicycle.slice";
 import bicyclePaymentReducer from "./features/payment/payment.slice";
 import addToCardsReducer from "./features/AddToCard/addToCard.slice";
+import isOpenWishListReducer from "./features/WishiListSidebar";
+import addToWishListReducer from "./features/WishIList/wishiList.slice";
 import {
   persistStore,
   persistReducer,
@@ -29,6 +31,10 @@ const persistConfigProduct = {
   key: "addToCard",
   storage,
 };
+const persistConfigWishListProduct = {
+  key: "addToWishListProduct",
+  storage,
+};
 const persistAuthReducer = persistReducer(persistConfig, authReducer);
 const persistProductReducer = persistReducer(
   persistConfigs,
@@ -38,14 +44,20 @@ const persistAddToCardReducer = persistReducer(
   persistConfigProduct,
   addToCardsReducer
 );
+const persistAddToWishListReducer = persistReducer(
+  persistConfigWishListProduct,
+  addToWishListReducer
+);
 export const store = configureStore({
   reducer: {
     [baseApi.reducerPath]: baseApi.reducer,
     isOpens: isOpenReducer,
+    isOpensWishList: isOpenWishListReducer,
     auth: persistAuthReducer,
     PaymetDeatils: persistProductReducer,
     bicycles: bicyclesReducer,
     addToCards: persistAddToCardReducer,
+    addToWishList: persistAddToWishListReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

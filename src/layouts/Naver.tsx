@@ -5,20 +5,33 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { RiHeartAddLine, RiShoppingCart2Line } from "react-icons/ri";
 import DynamicIconButton from "@/utils/DynamicIconButton";
 import { setCardSideber } from "@/redux/features/sideberSlice";
+import { setWishListCardSidebar } from "@/redux/features/WishiListSidebar";
+import {
+  allPorducts,
+  totallProducts,
+} from "@/redux/features/AddToCard/addToCard.slice";
+import { allWishListPorducts } from "@/redux/features/WishIList/wishiList.slice";
+
 const Naver = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isOpens, setIsOpens] = useState(false);
   const navigation = useNavigate();
   const user = useAppSelector(useCurrenUser);
+  const product = useAppSelector(allPorducts);
+  const wishlistProduct = useAppSelector(allWishListPorducts);
   const dispatch = useAppDispatch();
   const handileClickIsShow = () => {
     dispatch(setCardSideber(true));
+  };
+  const handileClickIsShowWishList = () => {
+    dispatch(setWishListCardSidebar(true));
   };
   const handileClickLogout = () => {
     dispatch(logout());
     navigation("/login");
   };
   const role = user?.role;
+
   return (
     <div className="">
       {" "}
@@ -207,11 +220,17 @@ const Naver = () => {
                     Dashboard
                   </NavLink>
                 )}
-                <div onClick={handileClickIsShow} className="mt-2 mx-3">
-                  <DynamicIconButton icon={RiHeartAddLine} count={6} />
+                <div onClick={handileClickIsShowWishList} className="mt-2 mx-3">
+                  <DynamicIconButton
+                    icon={RiHeartAddLine}
+                    count={wishlistProduct?.length}
+                  />
                 </div>
                 <div onClick={handileClickIsShow} className="mt-2 mx-3">
-                  <DynamicIconButton icon={RiShoppingCart2Line} count={6} />
+                  <DynamicIconButton
+                    icon={RiShoppingCart2Line}
+                    count={product?.length}
+                  />
                 </div>
               </div>
               <div className="lg:grid hidden">

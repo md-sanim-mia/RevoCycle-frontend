@@ -4,6 +4,7 @@ import {
   addToCardProduct,
   allPorducts,
 } from "@/redux/features/AddToCard/addToCard.slice";
+import { addToWishListProduct } from "@/redux/features/WishIList/wishiList.slice";
 import { useAppDispatch, useAppSelector } from "@/redux/hook";
 
 import { Bookmark, Eye, Heart, Share2, ShoppingCart, Star } from "lucide-react";
@@ -76,7 +77,10 @@ const ProductCard = ({ product }: { product: any }) => {
         {/* Quick Actions */}
         <div className="absolute top-2 right-2 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0 z-20">
           <button
-            onClick={() => setIsWishlisted(!isWishlisted)}
+            onClick={() => {
+              setIsWishlisted(!isWishlisted);
+              dispatch(addToWishListProduct(product));
+            }}
             className={`w-9 h-9 rounded-full flex items-center justify-center backdrop-blur-md border border-white/20 shadow-lg transition-all duration-300 ${
               isWishlisted
                 ? "bg-red-500 text-white"

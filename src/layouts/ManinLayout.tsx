@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import Naver from "./Naver";
 import Footer from "./Footer";
 import ProductLayout from "./ProductLayout";
+import WishiList from "./WishiList";
 
 const ManinLayout = () => {
   return (
@@ -10,6 +11,7 @@ const ManinLayout = () => {
         <Naver />
       </div>
       <ProductLayout />
+      <WishiList />
       <Outlet />
       <Footer />
     </div>

@@ -26,10 +26,39 @@ const productSlice = createSlice({
         state.productDeatils.push({ ...action.payload, quantity: 1 });
       }
     },
+
+    incementQuantity: (state, action) => {
+      const existingProduct = state.productDeatils.find(
+        (item: any) => item.id === action.payload
+      );
+
+      if (existingProduct) {
+        existingProduct.quantity += 1;
+      }
+    },
+    dicementQuantity: (state, action) => {
+      const existingProduct = state.productDeatils.find(
+        (item: any) => item.id === action.payload
+      );
+
+      if (existingProduct) {
+        existingProduct.quantity -= 1;
+      }
+    },
+    deleteProduct: (state, action) => {
+      state.productDeatils = state.productDeatils.filter(
+        (item: any) => item.id !== action.payload
+      );
+    },
   },
 });
 
-export const { addToCardProduct } = productSlice.actions;
+export const {
+  addToCardProduct,
+  incementQuantity,
+  dicementQuantity,
+  deleteProduct,
+} = productSlice.actions;
 export default productSlice.reducer;
 
 export const allPorducts = (state: RootState) =>
