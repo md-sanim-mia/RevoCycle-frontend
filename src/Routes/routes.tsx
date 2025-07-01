@@ -14,6 +14,7 @@ import UpdateProduct from "@/moduls/Dashboard/UpdateProduct";
 import Payment from "@/pages/Payments/Payment";
 import Profile from "@/moduls/Dashboard/All User/Profile";
 import PrivtedRouted from "./PrivtedRouted";
+import BlogDetailPage from "@/pages/Blogs/BlogsDeatils";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,15 @@ const router = createBrowserRouter([
           // <PrivtedRouted>
 
           <ProductDeatils />
+          // </PrivtedRouteds>
+        ),
+      },
+      {
+        path: "/blog/:blogId",
+        element: (
+          // <PrivtedRouted>
+
+          <BlogDetailPage />
           // </PrivtedRouteds>
         ),
       },

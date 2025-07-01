@@ -1,14 +1,14 @@
-import Loding from "@/components/Loding/Loding";
+// import Loding from "@/components/Loding/Loding";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Textarea } from "@/components/ui/textarea";
-import { useGetSingleBicycleQuery } from "@/redux/features/bicycle/bicycle.api";
-import { setTotalProduct } from "@/redux/features/bicycle/bicycle.slice";
-import { setProducts } from "@/redux/features/payment/payment.slice";
-import { useAppDispatch } from "@/redux/hook";
+// import { useGetSingleBicycleQuery } from "@/redux/features/bicycle/bicycle.api";
+// import { setTotalProduct } from "@/redux/features/bicycle/bicycle.slice";
+// import { setProducts } from "@/redux/features/payment/payment.slice";
+// import { useAppDispatch } from "@/redux/hook";
 import { Separator } from "@radix-ui/react-dropdown-menu";
 import {
   ChevronRight,
@@ -23,7 +23,7 @@ import {
 import { useState } from "react";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { useNavigate, useParams } from "react-router-dom";
+// import { useNavigate, useParams } from "react-router-dom";
 import ProductCard from "../Home/ProductCard";
 import { Progress } from "@/components/ui/progress";
 const product = {
@@ -203,15 +203,15 @@ const relatedProducts = [
 ];
 
 const ProductDeatils = () => {
-  const { productId } = useParams();
-  console.log(productId);
+  // const { productId } = useParams();
+
   // const { data, isLoading } = useGetSingleBicycleQuery(productId);
   // const product = data?.data;
-  const navigation = useNavigate();
+  // const navigation = useNavigate();
 
-  const dispatch = useAppDispatch();
+  // const dispatch = useAppDispatch();
 
-  const [totalCount, setCount] = useState(1);
+  // const [totalCount, setCount] = useState(1);
   // dispatch(setTotalProduct(product?.quantity));
   // const handileClickincrease = () => {
   //   if (totalCount < product?.quantity) {

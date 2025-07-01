@@ -6,10 +6,7 @@ import { RiHeartAddLine, RiShoppingCart2Line } from "react-icons/ri";
 import DynamicIconButton from "@/utils/DynamicIconButton";
 import { setCardSideber } from "@/redux/features/sideberSlice";
 import { setWishListCardSidebar } from "@/redux/features/WishiListSidebar";
-import {
-  allPorducts,
-  totallProducts,
-} from "@/redux/features/AddToCard/addToCard.slice";
+import { allPorducts } from "@/redux/features/AddToCard/addToCard.slice";
 import { allWishListPorducts } from "@/redux/features/WishIList/wishiList.slice";
 
 const Naver = () => {

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ProductCard from "../Home/ProductCard";
 import {
-  useGetAllBicycleQuery,
+  // useGetAllBicycleQuery,
   useGetAllCategoryBicycleQuery,
 } from "@/redux/features/bicycle/bicycle.api";
 import Loding from "@/components/Loding/Loding";
@@ -12,7 +12,8 @@ const BicyclesCard = () => {
     name: "",
     value: "",
   });
-  const { data } = useGetAllBicycleQuery(params);
+  console.log(params);
+  // const { data } = useGetAllBicycleQuery(params);
   const bikes = [
     {
       id: 1,

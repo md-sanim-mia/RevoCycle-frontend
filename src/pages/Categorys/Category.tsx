@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import CategoryCard from "./CategoryCard";
 import {
   Building2,
   Compass,
@@ -95,7 +94,7 @@ const Category = () => {
 
                   <p className="text-sm text-gray-500 mb-6">{category.count}</p>
 
-                  <Link to={`/categories/${category.name.toLowerCase()}`}>
+                  <Link to={"/"}>
                     <Button
                       variant="outline"
                       className="bg-transparent border-teal-500 text-teal-600 hover:bg-teal-500 hover:text-white transition-all duration-300 px-6 py-2 rounded-md font-medium"

@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 const Products = () => {
   const { data, isLoading } = useGetAllCategoryBicycleQuery(undefined);
+  console.log(data);
   const bikes = [
     {
       id: 1,

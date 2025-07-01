@@ -1,11 +1,8 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import {
-  addToCardProduct,
-  allPorducts,
-} from "@/redux/features/AddToCard/addToCard.slice";
+import { addToCardProduct } from "@/redux/features/AddToCard/addToCard.slice";
 import { addToWishListProduct } from "@/redux/features/WishIList/wishiList.slice";
-import { useAppDispatch, useAppSelector } from "@/redux/hook";
+import { useAppDispatch } from "@/redux/hook";
 
 import { Bookmark, Eye, Heart, Share2, ShoppingCart, Star } from "lucide-react";
 import { useState } from "react";
