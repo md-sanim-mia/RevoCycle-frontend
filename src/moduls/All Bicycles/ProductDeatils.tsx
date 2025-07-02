@@ -26,6 +26,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 // import { useNavigate, useParams } from "react-router-dom";
 import ProductCard from "../Home/ProductCard";
 import { Progress } from "@/components/ui/progress";
+import { Helmet } from "react-helmet-async";
 const product = {
   id: 1,
   name: "Mountain Explorer Pro 2024",
@@ -36,7 +37,6 @@ const product = {
   inStock: true,
   stock: 12,
   images: [
-    "https://images.unsplash.com/photo-1544191696-15693072e0b5?w=800&h=800&fit=crop&crop=center",
     "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=800&fit=crop&crop=center",
     "https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=800&h=800&fit=crop&crop=center",
     "https://images.unsplash.com/photo-1502744688674-c619d1586c9e?w=800&h=800&fit=crop&crop=center",
@@ -262,6 +262,9 @@ const ProductDeatils = () => {
   };
   return (
     <>
+      <Helmet>
+        <title>RevoCycle - {product ? product.name : "Bicycle Details"}</title>
+      </Helmet>
       {/* <div className="max-w-screen-xl h-full lg:px-10 mx-auto p-6 grid grid-cols-1  lg:grid-cols-2 gap-6">
 
         {isLoading && <Loding />}

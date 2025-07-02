@@ -88,9 +88,12 @@ const ProductCard = ({ product }: { product: any }) => {
               className={`w-4 h-4 ${isWishlisted ? "fill-current" : ""}`}
             />
           </button>
-          <button className="w-9 h-9 bg-white/90 backdrop-blur-md rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 text-gray-600 hover:text-black border border-white/20">
-            <Eye className="w-4 h-4" />
-          </button>
+          <Link to={`/product-details/${product.id}`}>
+            <button className="w-9 h-9 bg-white/90 backdrop-blur-md rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 text-gray-600 hover:text-black border border-white/20">
+              <Eye className="w-4 h-4" />
+            </button>
+          </Link>
+
           <button className="w-9 h-9 bg-white/90 backdrop-blur-md rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 text-gray-600 hover:text-black border border-white/20">
             <Share2 className="w-4 h-4" />
           </button>

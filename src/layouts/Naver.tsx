@@ -8,6 +8,7 @@ import { setCardSideber } from "@/redux/features/sideberSlice";
 import { setWishListCardSidebar } from "@/redux/features/WishiListSidebar";
 import { allPorducts } from "@/redux/features/AddToCard/addToCard.slice";
 import { allWishListPorducts } from "@/redux/features/WishIList/wishiList.slice";
+import { Bike } from "lucide-react";
 
 const Naver = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,10 +34,14 @@ const Naver = () => {
     <div className="">
       {" "}
       <nav className=" fixed z-40 w-full mx-auto  bg-[#000000] shadow dark:bg-gray-800">
-        <div className="max-w-screen-xl px-6 py-4 mx-auto">
+        <div className="max-w-screen-xl px-3 py-3 mx-auto">
           <div className="lg:flex lg:items-center lg:justify-between">
             <div className="flex items-center justify-between">
-              <h2 className="text-gray-300 text-xl">RevoCycle</h2>
+              <div className="flex items-center gap-1 ">
+                <Bike className="w-9 h-9 text-red-500 animate-pulse" />{" "}
+                <h2 className="text-gray-300 text-xl">RevoCycle</h2>
+              </div>
+
               <div className="flex lg:hidden gap-3 items-center">
                 <div className="">
                   <button

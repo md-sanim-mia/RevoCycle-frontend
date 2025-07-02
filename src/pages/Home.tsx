@@ -7,21 +7,27 @@ import Category from "./Categorys/Category";
 import { HeroCarousel } from "@/moduls/Home/Banner";
 import { AboutSection } from "@/moduls/Home/WhyChose";
 import { BlogSection } from "@/moduls/Home/Blogs";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   return (
-    <div className="min-h-screen">
-      <HeroCarousel />
-      <Category />
-      <HeroBenner />
-      <Products />
-      <BikesCollection />
-      <AboutSection />
-      <BlogSection />
-      <div className="pb-20">
-        <Testimonials />
+    <>
+      <Helmet>
+        <title>RevoCycle - Home </title>
+      </Helmet>
+      <div className="min-h-screen">
+        <HeroCarousel />
+        <Category />
+        <HeroBenner />
+        <Products />
+        <BikesCollection />
+        <AboutSection />
+        <BlogSection />
+        <div className="pb-20">
+          <Testimonials />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -10,6 +10,7 @@ import { useAppDispatch } from "@/redux/hook";
 import { setUser } from "@/redux/features/Auth/auth.slice";
 import { verifyToken } from "@/utils/verifyToken";
 import { toast } from "sonner";
+import { Helmet } from "react-helmet-async";
 const Login = () => {
   const {
     register,
@@ -35,46 +36,55 @@ const Login = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <Card className="w-96 shadow-lg">
-        <CardHeader>
-          <CardTitle className="text-center text-xl">Login</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-            <div>
-              <Input type="email" placeholder="Email" {...register("email")} />
-              {errors.email && (
-                <p className="text-red-500 text-sm mt-1">
-                  {String(errors.email.message)}
-                </p>
-              )}
-            </div>
-            <div>
-              <Input
-                type="password"
-                placeholder="Password"
-                {...register("password")}
-              />
-              {errors.password && (
-                <p className="text-red-500 text-sm mt-1">
-                  {String(errors.password.message)}
-                </p>
-              )}
-            </div>
-            <Button type="submit" className="w-full">
-              Login
-            </Button>
-          </form>
-          <p className="text-sm mt-5 text-center">
-            Don't have an account?
-            <Link to="/signup" className="text-blue-500 hover:underline">
-              Sign up here
-            </Link>
-          </p>
-        </CardContent>
-      </Card>
-    </div>
+    <>
+      <Helmet>
+        <title>RevoCycle - Login Page </title>
+      </Helmet>
+      <div className="flex items-center justify-center min-h-screen bg-gray-100">
+        <Card className="w-96 shadow-lg">
+          <CardHeader>
+            <CardTitle className="text-center text-xl">Login</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+              <div>
+                <Input
+                  type="email"
+                  placeholder="Email"
+                  {...register("email")}
+                />
+                {errors.email && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {String(errors.email.message)}
+                  </p>
+                )}
+              </div>
+              <div>
+                <Input
+                  type="password"
+                  placeholder="Password"
+                  {...register("password")}
+                />
+                {errors.password && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {String(errors.password.message)}
+                  </p>
+                )}
+              </div>
+              <Button type="submit" className="w-full">
+                Login
+              </Button>
+            </form>
+            <p className="text-sm mt-5 text-center">
+              Don't have an account?
+              <Link to="/signup" className="text-blue-500 hover:underline">
+                Sign up here
+              </Link>
+            </p>
+          </CardContent>
+        </Card>
+      </div>
+    </>
   );
 };
 

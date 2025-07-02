@@ -19,6 +19,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 // Mock blog post data
 const blogPost = {
@@ -207,358 +208,365 @@ export default function BlogDetailPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* <ModernNavbar /> */}
+    <>
+      <Helmet>
+        <title>RevoCycle - {blogPost ? blogPost.title : "Blog Details"}</title>
+      </Helmet>
+      <div className="min-h-screen bg-white">
+        {/* <ModernNavbar /> */}
 
-      {/* Reading Progress Bar */}
-      <div className="fixed top-0 left-0 w-full h-1 bg-gray-200 z-50">
-        <div
-          className="h-full bg-black transition-all duration-150"
-          style={{ width: `${readingProgress}%` }}
-        />
-      </div>
-
-      <main>
-        {/* Breadcrumb */}
-        <div className="bg-gray-50 py-4">
-          <div className="container mx-auto px-6">
-            <nav className="flex items-center space-x-2 text-sm text-gray-600">
-              <Link to="/" className="hover:text-black">
-                Home
-              </Link>
-              <ChevronRight className="w-4 h-4" />
-              <Link to="/blog" className="hover:text-black">
-                Blog
-              </Link>
-              <ChevronRight className="w-4 h-4" />
-              <span className="text-black">{blogPost.category}</span>
-            </nav>
-          </div>
-        </div>
-
-        {/* Hero Section */}
-        <div className="relative h-96 bg-black">
-          <img
-            src={blogPost.image || "/placeholder.svg"}
-            alt={blogPost.title}
-            className="object-cover opacity-60"
+        {/* Reading Progress Bar */}
+        <div className="fixed top-0 left-0 w-full h-1 bg-gray-200 z-50">
+          <div
+            className="h-full bg-black transition-all duration-150"
+            style={{ width: `${readingProgress}%` }}
           />
-          <div className="absolute inset-0 flex items-center">
-            <div className="container mx-auto px-6">
-              <div className="max-w-4xl">
-                <Badge className="mb-4 bg-white text-black">
-                  {blogPost.category}
-                </Badge>
-                <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
-                  {blogPost.title}
-                </h1>
-                <p className="text-xl text-white/90 mb-6 leading-relaxed">
-                  {blogPost.excerpt}
-                </p>
-
-                {/* Meta Info */}
-                <div className="flex flex-wrap items-center gap-6 text-white/80">
-                  <div className="flex items-center gap-2">
-                    <User className="w-4 h-4" />
-                    <span>{blogPost.author.name}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Calendar className="w-4 h-4" />
-                    <span>
-                      {new Date(blogPost.publishedAt).toLocaleDateString()}
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Clock className="w-4 h-4" />
-                    <span>{blogPost.readTime}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
 
-        <div className="container mx-auto px-6 py-12">
-          <div className="grid lg:grid-cols-12 gap-12">
-            {/* Table of Contents - Desktop */}
-            <div className="hidden lg:block lg:col-span-3">
-              <div className="sticky top-24">
-                <h3 className="font-bold text-gray-900 mb-4">
-                  Table of Contents
-                </h3>
-                <nav className="space-y-2">
-                  {tableOfContents.map((item) => (
-                    <a
-                      key={item.id}
-                      href={`#${item.id}`}
-                      className="block text-sm text-gray-600 hover:text-black transition-colors py-1"
-                    >
-                      {item.title}
-                    </a>
-                  ))}
-                </nav>
-
-                {/* Social Share */}
-                <div className="mt-8 pt-8 border-t">
-                  <h4 className="font-semibold text-gray-900 mb-4">
-                    Share Article
-                  </h4>
-                  <div className="flex flex-col gap-2">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => sharePost("twitter")}
-                      className="justify-start bg-transparent"
-                    >
-                      <Twitter className="w-4 h-4 mr-2" />
-                      Twitter
-                    </Button>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => sharePost("facebook")}
-                      className="justify-start bg-transparent"
-                    >
-                      <Facebook className="w-4 h-4 mr-2" />
-                      Facebook
-                    </Button>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => sharePost("linkedin")}
-                      className="justify-start bg-transparent"
-                    >
-                      <Linkedin className="w-4 h-4 mr-2" />
-                      LinkedIn
-                    </Button>
-                  </div>
-                </div>
-              </div>
+        <main>
+          {/* Breadcrumb */}
+          <div className="bg-gray-50 py-4">
+            <div className="container mx-auto px-6">
+              <nav className="flex items-center space-x-2 text-sm text-gray-600">
+                <Link to="/" className="hover:text-black">
+                  Home
+                </Link>
+                <ChevronRight className="w-4 h-4" />
+                <Link to="/blog" className="hover:text-black">
+                  Blog
+                </Link>
+                <ChevronRight className="w-4 h-4" />
+                <span className="text-black">{blogPost.category}</span>
+              </nav>
             </div>
+          </div>
 
-            {/* Main Content */}
-            <div className="lg:col-span-6">
-              {/* Article Actions */}
-              <div className="flex items-center justify-between mb-8 pb-6 border-b">
-                <div className="flex items-center gap-4">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => setIsLiked(!isLiked)}
-                    className={`bg-transparent ${
-                      isLiked ? "text-red-500 border-red-500" : ""
-                    }`}
-                  >
-                    <Heart
-                      className={`w-4 h-4 mr-2 ${
-                        isLiked ? "fill-current" : ""
-                      }`}
-                    />
-                    {blogPost.likes + (isLiked ? 1 : 0)}
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="bg-transparent"
-                  >
-                    <MessageCircle className="w-4 h-4 mr-2" />
-                    {blogPost.comments}
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="bg-transparent"
-                  >
-                    <Share2 className="w-4 h-4 mr-2" />
-                    {blogPost.shares}
-                  </Button>
-                </div>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => setIsBookmarked(!isBookmarked)}
-                  className={`bg-transparent ${
-                    isBookmarked ? "text-black border-black" : ""
-                  }`}
-                >
-                  <Bookmark
-                    className={`w-4 h-4 ${isBookmarked ? "fill-current" : ""}`}
-                  />
-                </Button>
-              </div>
+          {/* Hero Section */}
+          <div className="relative h-96 bg-black">
+            <img
+              src={blogPost.image || "/placeholder.svg"}
+              alt={blogPost.title}
+              className="object-cover opacity-60"
+            />
+            <div className="absolute inset-0 flex items-center">
+              <div className="container mx-auto px-6">
+                <div className="max-w-4xl">
+                  <Badge className="mb-4 bg-white text-black">
+                    {blogPost.category}
+                  </Badge>
+                  <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
+                    {blogPost.title}
+                  </h1>
+                  <p className="text-xl text-white/90 mb-6 leading-relaxed">
+                    {blogPost.excerpt}
+                  </p>
 
-              {/* Article Content */}
-              <article
-                id="article-content"
-                className="prose prose-lg max-w-none prose-headings:font-bold prose-headings:text-gray-900 prose-p:text-gray-700 prose-p:leading-relaxed prose-a:text-black prose-a:no-underline hover:prose-a:underline prose-strong:text-gray-900 prose-ul:text-gray-700 prose-li:text-gray-700"
-                dangerouslySetInnerHTML={{ __html: blogPost.content }}
-              />
-
-              {/* Tags */}
-              <div className="mt-12 pt-8 border-t">
-                <h4 className="font-semibold text-gray-900 mb-4">Tags</h4>
-                <div className="flex flex-wrap gap-2">
-                  {blogPost.tags.map((tag) => (
-                    <Badge
-                      key={tag}
-                      variant="secondary"
-                      className="bg-gray-100 text-gray-700 hover:bg-gray-200"
-                    >
-                      #{tag}
-                    </Badge>
-                  ))}
-                </div>
-              </div>
-
-              {/* Author Bio */}
-              <div className="mt-12 p-6 bg-gray-50">
-                <div className="flex items-start gap-4">
-                  <Avatar className="w-16 h-16">
-                    <AvatarImage
-                      src={blogPost.author.avatar || "/placeholder.svg"}
-                    />
-                    <AvatarFallback>
-                      {blogPost.author.name.charAt(0)}
-                    </AvatarFallback>
-                  </Avatar>
-                  <div className="flex-1">
-                    <h4 className="font-bold text-gray-900 mb-2">
-                      {blogPost.author.name}
-                    </h4>
-                    <p className="text-gray-600 mb-3 leading-relaxed">
-                      {blogPost.author.bio}
-                    </p>
-                    <div className="flex items-center gap-4">
-                      <span className="text-sm text-gray-500">Follow:</span>
-                      <a
-                        href="#"
-                        className="text-sm text-black hover:underline"
-                      >
-                        {blogPost.author.social.twitter}
-                      </a>
-                      <a
-                        href="#"
-                        className="text-sm text-black hover:underline"
-                      >
-                        {blogPost.author.social.instagram}
-                      </a>
+                  {/* Meta Info */}
+                  <div className="flex flex-wrap items-center gap-6 text-white/80">
+                    <div className="flex items-center gap-2">
+                      <User className="w-4 h-4" />
+                      <span>{blogPost.author.name}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Calendar className="w-4 h-4" />
+                      <span>
+                        {new Date(blogPost.publishedAt).toLocaleDateString()}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Clock className="w-4 h-4" />
+                      <span>{blogPost.readTime}</span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
 
-            {/* Sidebar */}
-            <div className="lg:col-span-3">
-              <div className="sticky top-24 space-y-8">
-                {/* Newsletter Signup */}
-                <div className="p-6 bg-black text-white">
-                  <h3 className="font-bold mb-3">Stay Updated</h3>
-                  <p className="text-sm text-white/80 mb-4">
-                    Get the latest cycling tips and product reviews delivered to
-                    your inbox.
-                  </p>
-                  <div className="space-y-3">
-                    <input
-                      type="email"
-                      placeholder="Your email address"
-                      className="w-full px-3 py-2 bg-white text-black text-sm"
-                    />
-                    <Button className="w-full bg-white text-black hover:bg-gray-100">
-                      Subscribe
-                    </Button>
+          <div className="container mx-auto px-6 py-12">
+            <div className="grid lg:grid-cols-12 gap-12">
+              {/* Table of Contents - Desktop */}
+              <div className="hidden lg:block lg:col-span-3">
+                <div className="sticky top-24">
+                  <h3 className="font-bold text-gray-900 mb-4">
+                    Table of Contents
+                  </h3>
+                  <nav className="space-y-2">
+                    {tableOfContents.map((item) => (
+                      <a
+                        key={item.id}
+                        href={`#${item.id}`}
+                        className="block text-sm text-gray-600 hover:text-black transition-colors py-1"
+                      >
+                        {item.title}
+                      </a>
+                    ))}
+                  </nav>
+
+                  {/* Social Share */}
+                  <div className="mt-8 pt-8 border-t">
+                    <h4 className="font-semibold text-gray-900 mb-4">
+                      Share Article
+                    </h4>
+                    <div className="flex flex-col gap-2">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => sharePost("twitter")}
+                        className="justify-start bg-transparent"
+                      >
+                        <Twitter className="w-4 h-4 mr-2" />
+                        Twitter
+                      </Button>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => sharePost("facebook")}
+                        className="justify-start bg-transparent"
+                      >
+                        <Facebook className="w-4 h-4 mr-2" />
+                        Facebook
+                      </Button>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => sharePost("linkedin")}
+                        className="justify-start bg-transparent"
+                      >
+                        <Linkedin className="w-4 h-4 mr-2" />
+                        LinkedIn
+                      </Button>
+                    </div>
                   </div>
                 </div>
+              </div>
 
-                {/* Popular Posts */}
-                <div>
-                  <h3 className="font-bold text-gray-900 mb-4">
-                    Popular Posts
-                  </h3>
-                  <div className="space-y-4">
-                    {relatedPosts.slice(0, 3).map((post) => (
-                      <Link
-                        key={post.id}
-                        to={`/blog/${post.id}`}
-                        className="block group"
+              {/* Main Content */}
+              <div className="lg:col-span-6">
+                {/* Article Actions */}
+                <div className="flex items-center justify-between mb-8 pb-6 border-b">
+                  <div className="flex items-center gap-4">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => setIsLiked(!isLiked)}
+                      className={`bg-transparent ${
+                        isLiked ? "text-red-500 border-red-500" : ""
+                      }`}
+                    >
+                      <Heart
+                        className={`w-4 h-4 mr-2 ${
+                          isLiked ? "fill-current" : ""
+                        }`}
+                      />
+                      {blogPost.likes + (isLiked ? 1 : 0)}
+                    </Button>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="bg-transparent"
+                    >
+                      <MessageCircle className="w-4 h-4 mr-2" />
+                      {blogPost.comments}
+                    </Button>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="bg-transparent"
+                    >
+                      <Share2 className="w-4 h-4 mr-2" />
+                      {blogPost.shares}
+                    </Button>
+                  </div>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => setIsBookmarked(!isBookmarked)}
+                    className={`bg-transparent ${
+                      isBookmarked ? "text-black border-black" : ""
+                    }`}
+                  >
+                    <Bookmark
+                      className={`w-4 h-4 ${
+                        isBookmarked ? "fill-current" : ""
+                      }`}
+                    />
+                  </Button>
+                </div>
+
+                {/* Article Content */}
+                <article
+                  id="article-content"
+                  className="prose prose-lg max-w-none prose-headings:font-bold prose-headings:text-gray-900 prose-p:text-gray-700 prose-p:leading-relaxed prose-a:text-black prose-a:no-underline hover:prose-a:underline prose-strong:text-gray-900 prose-ul:text-gray-700 prose-li:text-gray-700"
+                  dangerouslySetInnerHTML={{ __html: blogPost.content }}
+                />
+
+                {/* Tags */}
+                <div className="mt-12 pt-8 border-t">
+                  <h4 className="font-semibold text-gray-900 mb-4">Tags</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {blogPost.tags.map((tag) => (
+                      <Badge
+                        key={tag}
+                        variant="secondary"
+                        className="bg-gray-100 text-gray-700 hover:bg-gray-200"
                       >
-                        <div className="flex gap-3">
-                          <div className="relative w-16 h-16 bg-gray-100 flex-shrink-0">
-                            <img
-                              src={post.image || "/placeholder.svg"}
-                              alt={post.title}
-                              className="object-cover"
-                            />
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <h4 className="font-medium text-gray-900 group-hover:text-black text-sm line-clamp-2 mb-1">
-                              {post.title}
-                            </h4>
-                            <p className="text-xs text-gray-500">
-                              {post.readTime}
-                            </p>
-                          </div>
-                        </div>
-                      </Link>
+                        #{tag}
+                      </Badge>
                     ))}
                   </div>
                 </div>
+
+                {/* Author Bio */}
+                <div className="mt-12 p-6 bg-gray-50">
+                  <div className="flex items-start gap-4">
+                    <Avatar className="w-16 h-16">
+                      <AvatarImage
+                        src={blogPost.author.avatar || "/placeholder.svg"}
+                      />
+                      <AvatarFallback>
+                        {blogPost.author.name.charAt(0)}
+                      </AvatarFallback>
+                    </Avatar>
+                    <div className="flex-1">
+                      <h4 className="font-bold text-gray-900 mb-2">
+                        {blogPost.author.name}
+                      </h4>
+                      <p className="text-gray-600 mb-3 leading-relaxed">
+                        {blogPost.author.bio}
+                      </p>
+                      <div className="flex items-center gap-4">
+                        <span className="text-sm text-gray-500">Follow:</span>
+                        <a
+                          href="#"
+                          className="text-sm text-black hover:underline"
+                        >
+                          {blogPost.author.social.twitter}
+                        </a>
+                        <a
+                          href="#"
+                          className="text-sm text-black hover:underline"
+                        >
+                          {blogPost.author.social.instagram}
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Sidebar */}
+              <div className="lg:col-span-3">
+                <div className="sticky top-24 space-y-8">
+                  {/* Newsletter Signup */}
+                  <div className="p-6 bg-black text-white">
+                    <h3 className="font-bold mb-3">Stay Updated</h3>
+                    <p className="text-sm text-white/80 mb-4">
+                      Get the latest cycling tips and product reviews delivered
+                      to your inbox.
+                    </p>
+                    <div className="space-y-3">
+                      <input
+                        type="email"
+                        placeholder="Your email address"
+                        className="w-full px-3 py-2 bg-white text-black text-sm"
+                      />
+                      <Button className="w-full bg-white text-black hover:bg-gray-100">
+                        Subscribe
+                      </Button>
+                    </div>
+                  </div>
+
+                  {/* Popular Posts */}
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-4">
+                      Popular Posts
+                    </h3>
+                    <div className="space-y-4">
+                      {relatedPosts.slice(0, 3).map((post) => (
+                        <Link
+                          key={post.id}
+                          to={`/blog/${post.id}`}
+                          className="block group"
+                        >
+                          <div className="flex gap-3">
+                            <div className="relative w-16 h-16 bg-gray-100 flex-shrink-0">
+                              <img
+                                src={post.image || "/placeholder.svg"}
+                                alt={post.title}
+                                className="object-cover"
+                              />
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <h4 className="font-medium text-gray-900 group-hover:text-black text-sm line-clamp-2 mb-1">
+                                {post.title}
+                              </h4>
+                              <p className="text-xs text-gray-500">
+                                {post.readTime}
+                              </p>
+                            </div>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Related Posts */}
-        <section className="py-16 bg-gray-50">
-          <div className="container mx-auto px-6">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">
-              Related Articles
-            </h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              {relatedPosts.map((post) => (
-                <Link
-                  key={post.id}
-                  to={`/blog/${post.id}`}
-                  className="group block bg-white"
-                >
-                  <div className="relative aspect-[16/10] bg-gray-100 mb-4">
-                    <img
-                      src={post.image || "/placeholder.svg"}
-                      alt={post.title}
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <Badge className="mb-3 bg-gray-100 text-gray-700">
-                      {post.category}
-                    </Badge>
-                    <h3 className="font-bold text-gray-900 group-hover:text-black mb-2 line-clamp-2">
-                      {post.title}
-                    </h3>
-                    <p className="text-gray-600 mb-4 line-clamp-2">
-                      {post.excerpt}
-                    </p>
-                    <div className="flex items-center gap-4 text-sm text-gray-500">
-                      <span>{post.author}</span>
-                      <span>{post.readTime}</span>
+          {/* Related Posts */}
+          <section className="py-16 bg-gray-50">
+            <div className="container mx-auto px-6">
+              <h2 className="text-3xl font-bold text-gray-900 mb-8">
+                Related Articles
+              </h2>
+              <div className="grid md:grid-cols-3 gap-8">
+                {relatedPosts.map((post) => (
+                  <Link
+                    key={post.id}
+                    to={`/blog/${post.id}`}
+                    className="group block bg-white"
+                  >
+                    <div className="relative aspect-[16/10] bg-gray-100 mb-4">
+                      <img
+                        src={post.image || "/placeholder.svg"}
+                        alt={post.title}
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
                     </div>
-                  </div>
-                </Link>
-              ))}
+                    <div className="p-6">
+                      <Badge className="mb-3 bg-gray-100 text-gray-700">
+                        {post.category}
+                      </Badge>
+                      <h3 className="font-bold text-gray-900 group-hover:text-black mb-2 line-clamp-2">
+                        {post.title}
+                      </h3>
+                      <p className="text-gray-600 mb-4 line-clamp-2">
+                        {post.excerpt}
+                      </p>
+                      <div className="flex items-center gap-4 text-sm text-gray-500">
+                        <span>{post.author}</span>
+                        <span>{post.readTime}</span>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
-      </main>
+          </section>
+        </main>
 
-      {/* Scroll to Top Button */}
-      {showScrollTop && (
-        <Button
-          onClick={scrollToTop}
-          className="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-black text-white hover:bg-gray-800 shadow-lg z-40"
-        >
-          <ArrowUp className="w-5 h-5" />
-        </Button>
-      )}
-    </div>
+        {/* Scroll to Top Button */}
+        {showScrollTop && (
+          <Button
+            onClick={scrollToTop}
+            className="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-black text-white hover:bg-gray-800 shadow-lg z-40"
+          >
+            <ArrowUp className="w-5 h-5" />
+          </Button>
+        )}
+      </div>
+    </>
   );
 }
