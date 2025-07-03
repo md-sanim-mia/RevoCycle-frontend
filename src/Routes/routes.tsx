@@ -15,6 +15,7 @@ import Payment from "@/pages/Payments/Payment";
 import Profile from "@/moduls/Dashboard/All User/Profile";
 import PrivtedRouted from "./PrivtedRouted";
 import BlogDetailPage from "@/pages/Blogs/BlogsDeatils";
+import AllBlogs from "@/pages/Blogs/AllBlogs";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
           <ProductDeatils />
           // </PrivtedRouteds>
         ),
+      },
+      {
+        path: "/blogs",
+        element: <AllBlogs />,
       },
       {
         path: "/blog/:blogId",
