@@ -102,7 +102,7 @@ const BlogCards = (post: any, index: number) => {
           <div className="flex items-center justify-between">
             <Link
               to={`/blog/${blog.id}`}
-              className="inline-flex items-center font-semibold text-red-500 hover:text-red-600 transition-colors duration-300 group/link"
+              className="inline-flex cursor-pointer items-center font-semibold text-red-500 hover:text-red-600 transition-colors duration-300 group/link"
             >
               Read Full Article
               <ArrowRight className="w-4 h-4 ml-2 transform group-hover/link:translate-x-1 transition-transform duration-300" />
@@ -117,7 +117,7 @@ const BlogCards = (post: any, index: number) => {
         </div>
 
         {/* Premium Shine Effect */}
-        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+        <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500">
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
         </div>
       </article>
