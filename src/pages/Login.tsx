@@ -133,7 +133,7 @@ const Login = () => {
                   <div className="text-sm text-gray-400">Happy Customers</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-red-500">24/7</div>
+                  <div className="text-2xl font-bold text-red-500">24/9</div>
                   <div className="text-sm text-gray-400">Support</div>
                 </div>
               </div>
