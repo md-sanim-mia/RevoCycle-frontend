@@ -11,6 +11,7 @@ import {
 import { isShowSideber, setCardSideber } from "@/redux/features/sideberSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hook";
 import { ArrowRight, Minus, Plus, ShoppingBag, Trash2, X } from "lucide-react";
+import { Link } from "react-router-dom";
 const ProductLayout = () => {
   const dispatch = useAppDispatch();
   const handileClickHiden = () => {
@@ -232,10 +233,13 @@ const ProductLayout = () => {
               </div>
 
               <div className="space-y-3">
-                <Button className="w-full bg-red-500 hover:bg-red-600 text-white py-3 text-base font-semibold">
-                  Checkout Now
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
+                <Link to={"/cash-on-delivery"}>
+                  <Button className="w-full bg-red-500 hover:bg-red-600 text-white py-3 text-base font-semibold">
+                    Checkout Now
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </Link>
+
                 <Button
                   variant="outline"
                   className="w-full bg-transparent"

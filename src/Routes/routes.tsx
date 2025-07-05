@@ -16,6 +16,7 @@ import Profile from "@/moduls/Dashboard/All User/Profile";
 import PrivtedRouted from "./PrivtedRouted";
 import BlogDetailPage from "@/pages/Blogs/BlogsDeatils";
 import AllBlogs from "@/pages/Blogs/AllBlogs";
+import CashOnDelivery from "@/pages/Payments/CashOnDelivery";
 
 const router = createBrowserRouter([
   {
@@ -53,6 +54,15 @@ const router = createBrowserRouter([
           // <PrivtedRouted>
 
           <BlogDetailPage />
+          // </PrivtedRouteds>
+        ),
+      },
+      {
+        path: "/cash-on-delivery",
+        element: (
+          // <PrivtedRouted>
+
+          <CashOnDelivery />
           // </PrivtedRouteds>
         ),
       },
