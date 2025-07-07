@@ -192,6 +192,7 @@ const ProductLayout = () => {
                 ))}
               </div>
             )}
+            `
           </div>
 
           {items.length > 0 && (
