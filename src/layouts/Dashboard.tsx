@@ -9,7 +9,7 @@ const Dashboard = () => {
         {/* -------fixed header section ---------- */}
 
         {/*--------------- outlate content section ---------- */}
-        <div className="flex-1  lg:ml-64">
+        <div className="flex-1  lg:ml-[266px]">
           <div className="pr-5 py-5">
             <Outlet />
           </div>
