@@ -1,5 +1,4 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -29,7 +28,6 @@ const Sideber = () => {
   const userRole = {
     ADMIN: "admin",
     USER: "user",
-    STUDENT: "student",
   };
   let sideberItems;
 
@@ -44,17 +42,20 @@ const Sideber = () => {
     default:
       break;
   }
+  console.log("this is dashboard", sideberItems);
   return (
     <div>
       {/* Sidebar */}
       <div
-        className={
-          isOpen === "isShows"
-            ? " z-40 md:fixed lg:flex flex-col justify-between overflow-x-hidden bg-gray-50  w-60 space-y-6 px-2 py-4 absolute inset-y-0 left-0 transform md:translate-x-0 transition duration-200 ease-in-out border-r"
-            : isOpen === "isHiden"
-            ? " z-40 md:fixed hidden lg:flex flex-col justify-between bg-gray-50 overflow-x-hidden w-60 space-y-6 px-2 py-4 absolute inset-y-0 left-0 transform md:translate-x-0 transition duration-200 ease-in-out border-r"
-            : "z-40 md:fixed hidden lg:flex flex-col justify-between overflow-x-hidden bg-gradient-to-b bg-gray-50 w-60 space-y-6 px-2 py-4 absolute inset-y-0 left-0 transform md:translate-x-0 transition duration-200 ease-in-out border-r"
-        }
+        className={`z-40 fixed flex-col justify-between overflow-x-hidden bg-gray-50 w-60 space-y-6 px-2 py-4 inset-y-0 left-0 transform transition duration-200 ease-in-out border-r
+    ${
+      isOpen === "isShows"
+        ? "flex"
+        : isOpen === "isHiden"
+        ? "hidden"
+        : "hidden lg:flex"
+    }
+  `}
       >
         <div>
           {/* logo */}
@@ -77,14 +78,18 @@ const Sideber = () => {
                     <NavLink
                       to={`${item?.label}`}
                       className={({ isActive }) =>
-                        `group flex items-center justify-between px-3 py-3 text-sm font-medium rounded-xl transition-all duration-200 ${
-                          isActive
-                            ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white"
-                            : "text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                        }`
+                        `group flex items-center justify-between px-3 py-3 mb-3 text-sm font-medium rounded-xl transition-all duration-200 transform
+           ${
+             isActive
+               ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white"
+               : "text-gray-700 hover:bg-gray-100 hover:text-gray-900 hover:translate-x-1"
+           }`
                       }
                     >
-                      {item.key}
+                      <div className="flex items-center transition-transform duration-200 group-hover:translate-x-1">
+                        <item.icon className="mr-3 h-5 w-5" />
+                        {item.key}
+                      </div>
                     </NavLink>
                   </div>
                 </>
@@ -96,7 +101,8 @@ const Sideber = () => {
             <Separator className="my-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white" />
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <div className="w-full group flex items-center justify-between px-3 py-3  font-medium rounded-xl transition-all duration-200 text-gray-700 hover:bg-gradient-to-r from-blue-500 to-purple-500 hover:text-white">
+                <div className="w-full group flex items-center px-3 py-3  font-medium rounded-xl transition-all duration-200 text-gray-700 hover:bg-gradient-to-r from-blue-500 to-purple-500 hover:text-white">
+                  <Settings className="mr-3 h-5 w-5" />
                   Profile
                 </div>
               </DropdownMenuTrigger>
