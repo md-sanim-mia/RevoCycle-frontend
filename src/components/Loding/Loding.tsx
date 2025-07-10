@@ -27,7 +27,7 @@ const Loding = () => {
             <div className="bg-gradient-to-r from-red-400 to-red-500 h-full rounded-full transition-all duration-300 ease-out"></div>
           </div>
           <p className="text-sm  mt-4 animate-pulse">
-            Loading your cycling experience...
+            Loading your cycling experience....
           </p>
         </div>
 
